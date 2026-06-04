@@ -2,8 +2,8 @@
  * Shared social-proof data for Northstack.
  *
  * Northstack is built by Deric Yee and the team behind Sigmaschool — one of
- * Southeast Asia's leading coding bootcamps. The track record below is real
- * Sigmaschool proof, used here to establish that the people building your
+ * Southeast Asia's leading tech schools and programmes. The track record below
+ * is real Sigmaschool proof, used here to establish that the people building your
  * AI-native tooling have already shipped outcomes at scale.
  *
  * Sources: sigmaschool.co/about, sigmaschool.co/why-us, sigmaschool.co/press

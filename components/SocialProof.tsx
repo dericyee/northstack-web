@@ -123,8 +123,9 @@ export default function SocialProof() {
           </h2>
           <p>
             Before Northstack, we built one of Southeast Asia&apos;s leading
-            coding bootcamps — taking complete beginners to working software
-            developers, backed by a get-hired-or-money-back promise. We&apos;ve
+            tech schools and programmes — taking complete beginners to working
+            software developers, backed by a get-hired-or-money-back promise.
+            We&apos;ve
             spent years turning AI from hype into outcomes. Now we bring that
             inside your company.
           </p>
