@@ -12,7 +12,6 @@ export default function SiteNav() {
           <a href="/#numbers">Numbers</a>
           <a href="/#approach">Approach</a>
           <a href="/#work">What we do</a>
-          <a href="/#proof">Proof</a>
           <a href="/about">About</a>
         </nav>
         <div className="nav-cta">

@@ -101,6 +101,14 @@ p {
   color: transparent;
   animation: gradShift 8s ease infinite;
 }
+a.grad-text {
+  text-decoration: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: border-color 0.2s var(--ease);
+}
+a.grad-text:hover {
+  border-bottom-color: var(--accent);
+}
 @keyframes gradShift {
   0%,
   100% {
@@ -391,7 +399,7 @@ p {
   display: block;
   overflow: visible;
 }
-.hv-float {
+.hero-visual .hv-float {
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -407,13 +415,102 @@ p {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-7px);
+    transform: translateY(-8px);
+  }
+}
+/* rising line draws itself in on load */
+.hv-draw {
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  animation: hvDraw 2s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes hvDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* pulsing ring on the latest data point */
+.hero-visual .hv-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hvPing 2.6s ease-out infinite;
+}
+@keyframes hvPing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  70%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+/* live status dot */
+.hv-blink {
+  animation: hvBlink 1.8s ease-in-out infinite;
+}
+@keyframes hvBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+/* ambient glow breathing */
+.hero-visual .hv-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hvBreathe 9s ease-in-out infinite;
+}
+.hv-breathe-b {
+  animation-duration: 11s;
+  animation-delay: 1.5s;
+}
+@keyframes hvBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+/* automation progress bar fill */
+.hv-progress {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: hvProgress 4s ease-in-out infinite;
+}
+@keyframes hvProgress {
+  0% {
+    transform: scaleX(0.08);
+  }
+  60% {
+    transform: scaleX(0.78);
+  }
+  100% {
+    transform: scaleX(0.96);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .hv-float-a,
-  .hv-float-b {
+  .hv-float-b,
+  .hv-ping,
+  .hv-blink,
+  .hv-breathe,
+  .hv-progress {
     animation: none;
+  }
+  .hv-draw {
+    stroke-dashoffset: 0;
+  }
+  .hv-progress {
+    transform: scaleX(0.96);
   }
 }
 
@@ -1010,6 +1107,17 @@ html:not(.js-ready) .bar > i {
   font-weight: 600;
   color: var(--ink-soft);
   margin-bottom: 7px;
+}
+.field-optional {
+  font-weight: 500;
+  color: var(--muted);
+}
+.field-msg {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #d6453d;
 }
 .field input,
 .field select,

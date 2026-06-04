@@ -119,15 +119,22 @@ export default function SocialProof() {
           <span className="eyebrow">Why trust us with this</span>
           <h2>
             Built by the team behind{" "}
-            <span className="grad-text">Sigmaschool</span>.
+            <a
+              className="grad-text"
+              href="https://sigmaschool.co"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sigmaschool
+            </a>
+            .
           </h2>
           <p>
             Before Northstack, we built one of Southeast Asia&apos;s leading
-            tech schools and programmes — taking complete beginners to working
-            software developers, backed by a get-hired-or-money-back promise.
-            We&apos;ve
-            spent years turning AI from hype into outcomes. Now we bring that
-            inside your company.
+            AI-native software development programmes — taking complete beginners
+            to working software developers, backed by a get-hired-or-money-back
+            promise. We&apos;ve spent years turning AI from hype into outcomes.
+            Now we bring that inside your company.
           </p>
         </div>
 
