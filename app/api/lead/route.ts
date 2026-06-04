@@ -7,7 +7,10 @@ type LeadPayload = {
   email?: string;
   company?: string;
   role?: string;
+  phone?: string;
+  industry?: string;
   companySize?: string;
+  howHeard?: string;
   interestedIn?: string[];
   message?: string;
   // honeypot — bots fill this, humans never see it
@@ -71,7 +74,10 @@ export async function POST(req: Request) {
     Email: email,
   };
   if (body.company?.trim()) fields.Company = body.company.trim();
+  if (body.phone?.trim()) fields.Phone = body.phone.trim();
+  if (body.industry?.trim()) fields.Industry = body.industry.trim();
   if (body.companySize?.trim()) fields["Company size"] = body.companySize.trim();
+  if (body.howHeard?.trim()) fields["How did you hear"] = body.howHeard.trim();
   if (Array.isArray(body.interestedIn) && body.interestedIn.length > 0) {
     fields["What they need"] = body.interestedIn.join(", ");
   }

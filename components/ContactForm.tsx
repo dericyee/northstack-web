@@ -12,6 +12,16 @@ const INTERESTS = [
 
 const SIZES = ["1–10", "11–50", "51–200", "201–1000", "1000+"];
 
+const HEAR_OPTIONS = [
+  "Google search",
+  "LinkedIn",
+  "Referral / word of mouth",
+  "Social media",
+  "Event or webinar",
+  "Newsletter / blog",
+  "Other",
+];
+
 export default function ContactForm() {
   const [interests, setInterests] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
@@ -38,7 +48,10 @@ export default function ContactForm() {
       email: String(fd.get("email") || ""),
       company: String(fd.get("company") || ""),
       role: String(fd.get("role") || ""),
+      phone: String(fd.get("phone") || ""),
+      industry: String(fd.get("industry") || ""),
       companySize: String(fd.get("companySize") || ""),
+      howHeard: String(fd.get("howHeard") || ""),
       message: String(fd.get("message") || ""),
       website: String(fd.get("website") || ""), // honeypot
       interestedIn: interests,
@@ -129,18 +142,53 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="field">
-        <label htmlFor="companySize">Company size</label>
-        <select id="companySize" name="companySize" defaultValue="">
-          <option value="" disabled>
-            Select team size…
-          </option>
-          {SIZES.map((s) => (
-            <option key={s} value={s}>
-              {s} people
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="phone">Phone (with country code)</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="+60 12-345 6789"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="industry">Industry</label>
+          <input
+            id="industry"
+            name="industry"
+            placeholder="e.g. Brokerage, Healthcare, Logistics"
+          />
+        </div>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="companySize">Company size</label>
+          <select id="companySize" name="companySize" defaultValue="">
+            <option value="" disabled>
+              Select team size…
             </option>
-          ))}
-        </select>
+            {SIZES.map((s) => (
+              <option key={s} value={s}>
+                {s} people
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor="howHeard">How did you hear about us?</label>
+          <select id="howHeard" name="howHeard" defaultValue="">
+            <option value="" disabled>
+              Select one…
+            </option>
+            {HEAR_OPTIONS.map((h) => (
+              <option key={h} value={h}>
+                {h}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="field">
