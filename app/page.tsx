@@ -10,6 +10,118 @@ import { team } from "@/components/socialProofData";
 
 const SEQUOIA_URL = "https://www.sequoiacap.com/article/services-the-new-software/";
 
+/**
+ * Industries the Sequoia "Services: The New Software" essay points to as the
+ * largest services markets AI is set to reshape — the same verticals we focus on.
+ */
+const ARTICLE_INDUSTRIES = [
+  "Legal",
+  "Accounting & tax",
+  "Healthcare",
+  "Customer support",
+  "Recruiting & HR",
+  "IT services",
+  "Consulting",
+  "Financial services",
+  "Sales & marketing",
+  "Insurance",
+];
+
+/** Self-contained hero illustration — an AI-native workflow, in our brand style. */
+function HeroVisual() {
+  return (
+    <div className="hero-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 480 440" fill="none" role="img" aria-label="AI-native workflow illustration">
+        <defs>
+          <linearGradient id="hvg" x1="0" y1="0" x2="480" y2="440">
+            <stop stopColor="#3d63f5" />
+            <stop offset="1" stopColor="#5b82ff" />
+          </linearGradient>
+          <linearGradient id="hva" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#3d63f5" stopOpacity="0.22" />
+            <stop offset="1" stopColor="#3d63f5" stopOpacity="0" />
+          </linearGradient>
+          <filter id="hvs" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="18" stdDeviation="26" floodColor="#1b2b6b" floodOpacity="0.16" />
+          </filter>
+          <filter id="hvs2" x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="10" stdDeviation="16" floodColor="#1b2b6b" floodOpacity="0.18" />
+          </filter>
+          <clipPath id="hvcard">
+            <rect x="64" y="70" width="352" height="252" rx="20" />
+          </clipPath>
+        </defs>
+
+        {/* soft backdrop */}
+        <rect x="36" y="44" width="408" height="312" rx="26" fill="url(#hvg)" opacity="0.09" />
+
+        {/* main app card */}
+        <g filter="url(#hvs)">
+          <g clipPath="url(#hvcard)">
+            <rect x="64" y="70" width="352" height="252" fill="#ffffff" />
+            {/* header bar */}
+            <rect x="64" y="70" width="352" height="46" fill="url(#hvg)" />
+            <circle cx="86" cy="93" r="4.5" fill="#ffffff" opacity="0.85" />
+            <circle cx="102" cy="93" r="4.5" fill="#ffffff" opacity="0.6" />
+            <circle cx="118" cy="93" r="4.5" fill="#ffffff" opacity="0.4" />
+            <rect x="300" y="85" width="96" height="16" rx="8" fill="#ffffff" opacity="0.28" />
+
+            {/* chart gridlines */}
+            <line x1="88" y1="160" x2="392" y2="160" stroke="#eef0f4" strokeWidth="1" />
+            <line x1="88" y1="205" x2="392" y2="205" stroke="#eef0f4" strokeWidth="1" />
+            <line x1="88" y1="250" x2="392" y2="250" stroke="#eef0f4" strokeWidth="1" />
+
+            {/* area + rising line */}
+            <path
+              d="M88 250 C140 244 168 214 212 204 C262 192 300 156 392 138 L392 286 L88 286 Z"
+              fill="url(#hva)"
+            />
+            <path
+              d="M88 250 C140 244 168 214 212 204 C262 192 300 156 392 138"
+              stroke="url(#hvg)"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+            <circle cx="212" cy="204" r="4.5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
+            <circle cx="392" cy="138" r="4.5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
+
+            {/* footer stat chips */}
+            <rect x="88" y="300" width="78" height="12" rx="6" fill="#eef2ff" />
+            <rect x="176" y="300" width="60" height="12" rx="6" fill="#f0f1f4" />
+            <rect x="246" y="300" width="48" height="12" rx="6" fill="#f0f1f4" />
+          </g>
+        </g>
+
+        {/* floating "AI agent" badge */}
+        <g className="hv-float hv-float-a" filter="url(#hvs2)">
+          <rect x="316" y="44" width="132" height="46" rx="23" fill="url(#hvg)" />
+          <path
+            d="M339 60l2.4 5.6L347 68l-5.6 2.4L339 76l-2.4-5.6L331 68l5.6-2.4z"
+            fill="#fff"
+          />
+          <rect x="352" y="59" width="74" height="7" rx="3.5" fill="#ffffff" opacity="0.95" />
+          <rect x="352" y="70" width="50" height="6" rx="3" fill="#ffffff" opacity="0.6" />
+        </g>
+
+        {/* floating "shipped" node */}
+        <g className="hv-float hv-float-b" filter="url(#hvs2)">
+          <rect x="40" y="288" width="150" height="60" rx="16" fill="#ffffff" />
+          <circle cx="70" cy="318" r="15" fill="#ecf1ff" />
+          <path
+            d="M63 318l4.5 4.5L78 312"
+            stroke="url(#hvg)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <rect x="96" y="308" width="78" height="8" rx="4" fill="#1b2030" opacity="0.82" />
+          <rect x="96" y="324" width="54" height="7" rx="3.5" fill="#9aa0ab" opacity="0.7" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 function Check() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -73,27 +185,32 @@ export default function Home() {
           <span className="blob blob-a" aria-hidden="true" />
           <span className="blob blob-b" aria-hidden="true" />
           <div className="container">
-            <div className="reveal">
-              <span className="eyebrow">AI-native transformation studio</span>
-            </div>
-            <h1 className="reveal" style={{ marginTop: 22 }}>
-              Become <span className="grad-text">AI-native</span> before your
-              competitors do.
-            </h1>
-            <p className="hero-lede reveal">
-              We&apos;ve built software for years and kept seeing the same thing:
-              brilliant teams losing hours to work that AI can now do. You know
-              your field better than anyone. We bring the AI-native tools to make
-              your people dramatically faster at it.
-            </p>
-            <div className="hero-actions reveal">
-              <a className="btn btn-primary" href="#contact">
-                Let&apos;s chat
-                <span className="btn-arrow">→</span>
-              </a>
-              <a className="btn btn-ghost" href="#why">
-                Why this, why now
-              </a>
+            <div className="hero-grid">
+              <div className="hero-copy">
+                <div className="reveal">
+                  <span className="eyebrow">AI-native transformation studio</span>
+                </div>
+                <h1 className="reveal" style={{ marginTop: 22 }}>
+                  Become <span className="grad-text">AI-native</span> before your
+                  competitors do.
+                </h1>
+                <p className="hero-lede reveal">
+                  We&apos;ve built software for years and kept seeing the same
+                  thing: brilliant teams losing hours to work that AI can now do.
+                  You know your field better than anyone. We bring the AI-native
+                  tools to make your people dramatically faster at it.
+                </p>
+                <div className="hero-actions reveal">
+                  <a className="btn btn-primary" href="#contact">
+                    Let&apos;s chat
+                    <span className="btn-arrow">→</span>
+                  </a>
+                  <a className="btn btn-ghost" href="#why">
+                    Why this, why now
+                  </a>
+                </div>
+              </div>
+              <HeroVisual />
             </div>
             <div className="hero-meta reveal">
               <div className="stat">
@@ -259,6 +376,22 @@ export default function Home() {
               <p className="article-note">
                 Excerpt shown for context. Full article © Sequoia Capital.
               </p>
+            </div>
+
+            {/* Industries the essay points to */}
+            <div className="nx-industries reveal">
+              <span className="eyebrow">Where the shift lands first</span>
+              <p className="nx-industries-lede">
+                The essay points to the biggest services markets AI is already
+                reshaping — the same industries where we see the most to gain:
+              </p>
+              <div className="nx-industry-tags">
+                {ARTICLE_INDUSTRIES.map((industry) => (
+                  <span className="nx-industry-tag" key={industry}>
+                    {industry}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
