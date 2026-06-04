@@ -23,6 +23,8 @@ export default function SiteFooter() {
             <a href="/#process">Process</a>
             <a href="/about">About</a>
             <a href="/#contact">Contact</a>
+            <a href="mailto:deric.yee@gmail.com">deric.yee@gmail.com</a>
+            <a href="tel:+601161109801">+60 11-6110 9801</a>
           </div>
         </div>
         <div className="footer-bottom">

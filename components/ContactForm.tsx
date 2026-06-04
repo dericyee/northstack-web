@@ -90,7 +90,16 @@ export default function ContactForm() {
 
   return (
     <form className="form" onSubmit={onSubmit} noValidate>
-      {status === "error" && <div className="form-error">{error}</div>}
+      {status === "error" && (
+        <div className="form-error">
+          {error}
+          <span className="form-error-contact">
+            You can also reach us directly at{" "}
+            <a href="mailto:deric.yee@gmail.com">deric.yee@gmail.com</a> or{" "}
+            <a href="tel:+601161109801">+60 11-6110 9801</a>.
+          </span>
+        </div>
+      )}
 
       <div className="field-row">
         <div className="field">

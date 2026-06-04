@@ -660,6 +660,11 @@ export default function Home() {
                       <Dot /> Start with a small paid pilot, never a big contract
                     </span>
                   </div>
+                  <div className="cta-direct">
+                    <span>Prefer to reach us directly?</span>
+                    <a href="mailto:deric.yee@gmail.com">deric.yee@gmail.com</a>
+                    <a href="tel:+601161109801">+60 11-6110 9801</a>
+                  </div>
                 </div>
                 <ContactForm />
               </div>
