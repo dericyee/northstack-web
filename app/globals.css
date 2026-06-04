@@ -930,6 +930,18 @@ html:not(.js-ready) .bar > i {
   resize: vertical;
   min-height: 96px;
 }
+.phone-input {
+  display: flex;
+  gap: 8px;
+}
+.phone-input select {
+  width: auto;
+  flex: 0 0 auto;
+}
+.phone-input input {
+  flex: 1;
+  min-width: 0;
+}
 .field input::placeholder,
 .field textarea::placeholder {
   color: #aab0bd;

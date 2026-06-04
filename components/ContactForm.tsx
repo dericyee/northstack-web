@@ -12,6 +12,23 @@ const INTERESTS = [
 
 const SIZES = ["1–10", "11–50", "51–200", "201–1000", "1000+"];
 
+const COUNTRY_CODES = [
+  { flag: "🇲🇾", dial: "+60", name: "Malaysia" },
+  { flag: "🇸🇬", dial: "+65", name: "Singapore" },
+  { flag: "🇮🇩", dial: "+62", name: "Indonesia" },
+  { flag: "🇹🇭", dial: "+66", name: "Thailand" },
+  { flag: "🇵🇭", dial: "+63", name: "Philippines" },
+  { flag: "🇻🇳", dial: "+84", name: "Vietnam" },
+  { flag: "🇮🇳", dial: "+91", name: "India" },
+  { flag: "🇨🇳", dial: "+86", name: "China" },
+  { flag: "🇭🇰", dial: "+852", name: "Hong Kong" },
+  { flag: "🇯🇵", dial: "+81", name: "Japan" },
+  { flag: "🇦🇺", dial: "+61", name: "Australia" },
+  { flag: "🇬🇧", dial: "+44", name: "United Kingdom" },
+  { flag: "🇺🇸", dial: "+1", name: "United States / Canada" },
+  { flag: "🇦🇪", dial: "+971", name: "United Arab Emirates" },
+];
+
 const HEAR_OPTIONS = [
   "Google search",
   "LinkedIn",
@@ -43,12 +60,16 @@ export default function ContactForm() {
     setError("");
 
     const fd = new FormData(e.currentTarget);
+    const phoneNumber = String(fd.get("phoneNumber") || "").trim();
+    const phone = phoneNumber
+      ? `${String(fd.get("phoneCode") || "")} ${phoneNumber}`.trim()
+      : "";
     const payload = {
       name: String(fd.get("name") || ""),
       email: String(fd.get("email") || ""),
       company: String(fd.get("company") || ""),
       role: String(fd.get("role") || ""),
-      phone: String(fd.get("phone") || ""),
+      phone,
       industry: String(fd.get("industry") || ""),
       companySize: String(fd.get("companySize") || ""),
       howHeard: String(fd.get("howHeard") || ""),
@@ -144,13 +165,26 @@ export default function ContactForm() {
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="phone">Phone (with country code)</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="+60 12-345 6789"
-          />
+          <label htmlFor="phoneNumber">Phone</label>
+          <div className="phone-input">
+            <select
+              name="phoneCode"
+              aria-label="Country code"
+              defaultValue="+60"
+            >
+              {COUNTRY_CODES.map((c) => (
+                <option key={c.name} value={c.dial}>
+                  {c.flag} {c.dial}
+                </option>
+              ))}
+            </select>
+            <input
+              id="phoneNumber"
+              name="phoneNumber"
+              type="tel"
+              placeholder="12-345 6789"
+            />
+          </div>
         </div>
         <div className="field">
           <label htmlFor="industry">Industry</label>
