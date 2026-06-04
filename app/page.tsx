@@ -1,27 +1,18 @@
 import ContactForm from "@/components/ContactForm";
 import Enhance from "@/components/Enhance";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
+import Star from "@/components/Star";
 
-const SEQUOIA_URL = "https://sequoiacap.com/article/services-the-new-software/";
-
-function Star({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" rx="7" fill="#0c0e12" />
-      <path
-        d="M16 6l2.2 7.8L26 16l-7.8 2.2L16 26l-2.2-7.8L6 16l7.8-2.2z"
-        fill="#fff"
-      />
-    </svg>
-  );
-}
+const SEQUOIA_URL = "https://www.sequoiacap.com/article/services-the-new-software/";
 
 function Check() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="11" fill="#2d4eff" opacity="0.12" />
+      <circle cx="12" cy="12" r="11" fill="#3d63f5" opacity="0.12" />
       <path
         d="M7 12.5l3.2 3.2L17 8.5"
-        stroke="#2d4eff"
+        stroke="#3d63f5"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -57,8 +48,8 @@ function Dot() {
       />
       <defs>
         <linearGradient id="dotg" x1="0" y1="0" x2="18" y2="18">
-          <stop stopColor="#4f46e5" />
-          <stop offset="1" stopColor="#7c3aed" />
+          <stop stopColor="#3d63f5" />
+          <stop offset="1" stopColor="#5b82ff" />
         </linearGradient>
       </defs>
     </svg>
@@ -69,28 +60,8 @@ export default function Home() {
   return (
     <>
       <Enhance />
-
-      {/* NAV */}
-      <header className="nav">
-        <div className="container nav-inner">
-          <a className="brand" href="#top">
-            <Star /> Northstack
-          </a>
-          <nav className="nav-links">
-            <a href="#why">Why now</a>
-            <a href="#approach">Approach</a>
-            <a href="#work">What we do</a>
-            <a href="#process">Process</a>
-          </nav>
-          <div className="nav-cta">
-            <a className="btn btn-primary" href="#contact">
-              Let&apos;s chat
-            </a>
-          </div>
-        </div>
-      </header>
-
       <div className="scroll-progress" aria-hidden="true" />
+      <SiteNav />
 
       <main id="top">
         {/* HERO */}
@@ -222,6 +193,68 @@ export default function Home() {
                   We help you build the second kind.
                 </div>
               </figure>
+            </div>
+
+            {/* Readable article preview */}
+            <div className="article-wrap reveal">
+              <p className="article-intro">
+                Don&apos;t take our word for it — read the essay that frames the
+                shift:
+              </p>
+              <a
+                className="browser-frame"
+                href={SEQUOIA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read 'Services: The New Software' on Sequoia Capital"
+              >
+                <div className="browser-bar">
+                  <span className="dots">
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                  <span className="browser-url">
+                    sequoiacap.com/article/services-the-new-software
+                  </span>
+                </div>
+                <div className="article-page">
+                  <span className="article-kicker">Sequoia Capital · Perspectives</span>
+                  <h3 className="article-title">Services: The New Software</h3>
+                  <p className="article-byline">
+                    By Julien Bek &amp; Sonya Huang · Sequoia Capital
+                  </p>
+                  <div className="article-body">
+                    <p>
+                      For decades, software has been sold by the seat. But the
+                      far larger prize has always sat next to it: the services
+                      that make software actually work. For every $1 spent on
+                      software, roughly $6 is spent on services.
+                    </p>
+                    <p>
+                      AI changes who does that work. The winning companies of
+                      this era won&apos;t just sell tools to professionals — they
+                      will deliver the outcome itself, with AI doing the heavy
+                      lifting, capturing services revenue at software-like
+                      margins.
+                    </p>
+                    <p>
+                      The distinction that matters is between copilots and
+                      autopilots. Copilots assist a human and compete with every
+                      new model. Autopilots own the work end-to-end and get
+                      cheaper and better with every model release.
+                    </p>
+                  </div>
+                  <span className="article-fade" aria-hidden="true" />
+                </div>
+                <span className="article-cta">
+                  Read the full essay on Sequoia
+                  <span className="btn-arrow">→</span>
+                </span>
+              </a>
+              <p className="article-note">
+                Excerpt shown for context. Full article © Sequoia Capital.
+              </p>
             </div>
           </div>
         </section>
@@ -635,43 +668,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-inner">
-            <div>
-              <a className="brand" href="#top">
-                <Star /> Northstack
-              </a>
-              <p>
-                We help established companies become AI-native — so the expertise
-                you&apos;ve spent years building compounds instead of stalling.
-              </p>
-            </div>
-            <div className="footer-links">
-              <a href="#why">Why now</a>
-              <a href="#approach">Approach</a>
-              <a href="#work">What we do</a>
-              <a href="#process">Process</a>
-              <a href="#contact">Contact</a>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <span>© {new Date().getFullYear()} Northstack. All rights reserved.</span>
-            <span>
-              Premise:{" "}
-              <a
-                href={SEQUOIA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ borderBottom: "1px solid var(--line-strong)" }}
-              >
-                Sequoia — Services: The New Software
-              </a>
-            </span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

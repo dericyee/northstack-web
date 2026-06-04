@@ -1,24 +1,25 @@
 :root {
+  /* Linear-inspired: cool neutrals, one restrained indigo-blue accent */
   --paper: #ffffff;
-  --bg: #fbfcff;
+  --bg: #fbfbfc;
   --surface: #ffffff;
-  --surface-2: #f5f7fc;
-  --ink: #0d1220;
-  --ink-soft: #3b4357;
-  --muted: #707888;
-  --line: #ebeef5;
-  --line-strong: #dde2ee;
-  --accent: #4f46e5;
-  --accent-2: #7c3aed;
-  --accent-3: #06b6d4;
-  --accent-soft: #eef0ff;
-  --grad: linear-gradient(120deg, #4f46e5, #7c3aed 55%, #06b6d4);
-  --grad-soft: linear-gradient(120deg, #eef0ff, #f3ecff 55%, #e8fbff);
-  --radius: 16px;
+  --surface-2: #f6f7f9;
+  --ink: #08090a;
+  --ink-soft: #41454d;
+  --muted: #8a8f98;
+  --line: #e9eaec;
+  --line-strong: #dadbe0;
+  --accent: #3d63f5;
+  --accent-2: #5b82ff;
+  --accent-3: #6e8bff;
+  --accent-soft: #ecf1ff;
+  --grad: linear-gradient(120deg, #3d63f5, #5b82ff);
+  --grad-soft: linear-gradient(120deg, #eef2ff, #eef5ff);
+  --radius: 13px;
   --maxw: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow: 0 24px 60px -34px rgba(40, 46, 110, 0.35);
-  --shadow-soft: 0 12px 40px -28px rgba(40, 46, 110, 0.28);
+  --shadow: 0 20px 50px -32px rgba(16, 24, 56, 0.26);
+  --shadow-soft: 0 10px 30px -24px rgba(16, 24, 56, 0.2);
 }
 
 * {
@@ -242,8 +243,8 @@ p {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.55;
+  filter: blur(70px);
+  opacity: 0.42;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
@@ -251,7 +252,7 @@ p {
 .blob-a {
   width: 460px;
   height: 460px;
-  background: radial-gradient(circle at 30% 30%, #c7d2fe, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, #d6e1ff, transparent 70%);
   top: -120px;
   right: -80px;
   animation: float1 18s ease-in-out infinite;
@@ -259,7 +260,7 @@ p {
 .blob-b {
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle at 50% 50%, #ddd6fe, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #e3e9ff, transparent 70%);
   top: 120px;
   left: -120px;
   animation: float2 22s ease-in-out infinite;
@@ -267,7 +268,7 @@ p {
 .blob-c {
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle at 50% 50%, #bae6fd, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #dbe5ff, transparent 70%);
   bottom: -120px;
   right: 20%;
   animation: float1 26s ease-in-out infinite;
@@ -812,9 +813,9 @@ html:not(.js-ready) .bar > i {
 /* ---------- Contact / CTA (light) ---------- */
 .cta {
   position: relative;
-  background: linear-gradient(135deg, #f3f1ff 0%, #eef3ff 45%, #eafaff 100%);
+  background: linear-gradient(150deg, #f7f8fb 0%, #eef2ff 55%, #f4f7ff 100%);
   border: 1px solid var(--line);
-  border-radius: 26px;
+  border-radius: 22px;
   padding: 56px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -1055,6 +1056,238 @@ html:not(.js-ready) .bar > i {
   transform: none;
 }
 
+/* ---------- Article preview (browser frame) ---------- */
+.article-wrap {
+  margin-top: 60px;
+}
+.article-intro {
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.browser-frame {
+  display: block;
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.browser-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 34px 70px -36px rgba(20, 24, 50, 0.4);
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+.browser-bar .dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.browser-bar .dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #d6d8de;
+}
+.browser-bar .dots i:nth-child(1) {
+  background: #f25f57;
+}
+.browser-bar .dots i:nth-child(2) {
+  background: #fbbe2e;
+}
+.browser-bar .dots i:nth-child(3) {
+  background: #2bc840;
+}
+.browser-url {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 14px;
+  max-width: 420px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.article-page {
+  position: relative;
+  padding: 36px 44px 0;
+  max-height: 360px;
+  overflow: hidden;
+}
+@media (max-width: 560px) {
+  .article-page {
+    padding: 26px 24px 0;
+  }
+}
+.article-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.article-title {
+  font-size: clamp(26px, 3.6vw, 38px);
+  margin: 12px 0 8px;
+  letter-spacing: -0.025em;
+}
+.article-byline {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+.article-body p {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.68;
+  margin-bottom: 14px;
+}
+.article-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 130px;
+  background: linear-gradient(transparent, var(--surface));
+}
+.article-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 18px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--accent);
+  border-top: 1px solid var(--line);
+}
+.article-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12.5px;
+  margin-top: 14px;
+}
+
+/* ---------- About page ---------- */
+.founder {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .founder {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+.founder-card {
+  position: sticky;
+  top: 100px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+}
+@media (max-width: 820px) {
+  .founder-card {
+    position: static;
+  }
+}
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: var(--grad);
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.founder-card h3 {
+  font-size: 21px;
+}
+.founder-role {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.founder-links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.founder-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  transition: color 0.2s var(--ease);
+}
+.founder-links a:hover {
+  color: var(--accent);
+}
+.prose > p {
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+.prose > p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.prose h3 {
+  font-size: 22px;
+  margin: 36px 0 14px;
+}
+.pull {
+  margin: 34px 0;
+  padding: 4px 0 4px 24px;
+  position: relative;
+  font-size: 21px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.pull::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--grad);
+}
+
+/* ---------- Reveal animation ----------
+   Fail-safe: content is visible by default. Only once JS confirms it's
+   running (`.js-ready` on <html>) do we hide elements to animate them in. */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .js-ready .reveal {

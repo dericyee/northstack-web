@@ -65,9 +65,20 @@ Colors and spacing are CSS variables at the top of `app/globals.css`.
 Deploy on any Node host (Vercel recommended — zero config for Next.js).
 Set the `AIRTABLE_*` environment variables in the host's dashboard.
 
-## A note on the chart
+## Pages
 
-Sequoia's site blocks hotlinking, so the "\$1 software : \$6 services" visual in
-the *Why now* section is an **original recreation** in Northstack's style, with
-a quote adapted from and linked back to the original article — no copyrighted
-assets are embedded.
+- `/` — the main single-page site
+- `/about` — about Deric Yee (founder of Sigma School) and the Northstack story
+
+## A note on the Sequoia content
+
+Sequoia's site blocks scraping/hotlinking (and this build environment's network
+is allowlisted), so:
+
+- The "\$1 software : \$6 services" visual is an **original recreation** in
+  Northstack's style.
+- The "blog screenshot" in the *Why now* section is a **styled, readable
+  preview** showing a short excerpt, clearly attributed and linked to the
+  original essay — no copyrighted page image is embedded. To use a real
+  screenshot instead, drop a PNG into `public/` and swap the `.browser-frame`
+  block in `app/page.tsx` for an `<img>`.
