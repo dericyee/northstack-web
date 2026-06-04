@@ -35,18 +35,11 @@ export default function AboutDeric() {
             <h3>Deric Yee</h3>
             <div className="nx-founder-role">Founder · Northstack &amp; Sigma School</div>
             <div className="nx-founder-links">
-              <a href="https://dericyee.com" target="_blank" rel="noopener noreferrer">
-                <LinkIcon /> dericyee.com
-              </a>
-              <a
-                href="https://www.linkedin.com/in/dericyjy/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkIcon /> LinkedIn
-              </a>
               <a href="https://sigmaschool.co/about" target="_blank" rel="noopener noreferrer">
-                <LinkIcon /> Sigma School
+                <LinkIcon /> Sigma School — About
+              </a>
+              <a href="https://sigmaschool.co" target="_blank" rel="noopener noreferrer">
+                <LinkIcon /> sigmaschool.co
               </a>
             </div>
           </aside>

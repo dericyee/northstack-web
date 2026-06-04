@@ -66,25 +66,18 @@ export default function About() {
                 <div className="founder-role">Founder, Northstack</div>
                 <div className="founder-links">
                   <a
-                    href="https://dericyee.com"
+                    href="https://sigmaschool.co/about"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon /> dericyee.com
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/dericyjy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkIcon /> LinkedIn
+                    <LinkIcon /> Sigma School — About
                   </a>
                   <a
                     href="https://sigmaschool.co"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon /> Sigma School
+                    <LinkIcon /> sigmaschool.co
                   </a>
                 </div>
               </aside>
