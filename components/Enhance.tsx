@@ -72,9 +72,37 @@ export default function Enhance() {
     reveals.forEach((el) => io.observe(el));
     counters.forEach((el) => io.observe(el));
 
+    // Magnetic primary buttons — they lean gently toward the cursor.
+    const magnets = Array.from(
+      document.querySelectorAll<HTMLElement>(".btn-primary")
+    );
+    const onMove = (e: PointerEvent) => {
+      const el = e.currentTarget as HTMLElement;
+      const r = el.getBoundingClientRect();
+      const mx = e.clientX - (r.left + r.width / 2);
+      const my = e.clientY - (r.top + r.height / 2);
+      el.style.transform = `translate(${mx * 0.18}px, ${my * 0.28}px)`;
+    };
+    const onLeave = (e: PointerEvent) => {
+      (e.currentTarget as HTMLElement).style.transform = "";
+    };
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (fine) {
+      magnets.forEach((el) => {
+        el.addEventListener("pointermove", onMove as EventListener);
+        el.addEventListener("pointerleave", onLeave as EventListener);
+      });
+    }
+
     return () => {
       io.disconnect();
       window.removeEventListener("scroll", onScroll);
+      if (fine) {
+        magnets.forEach((el) => {
+          el.removeEventListener("pointermove", onMove as EventListener);
+          el.removeEventListener("pointerleave", onLeave as EventListener);
+        });
+      }
     };
   }, []);
 
