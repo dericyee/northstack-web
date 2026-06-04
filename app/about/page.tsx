@@ -205,13 +205,21 @@ export default function About() {
               <span className="eyebrow">The track record</span>
               <h2>
                 Proof, not promises — from{" "}
-                <span className="grad-text">Sigmaschool</span>.
+                <a
+                  className="grad-text"
+                  href="https://sigmaschool.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Sigmaschool
+                </a>
+                .
               </h2>
               <p>
                 The same people building Northstack already ran one of Southeast
-                Asia&apos;s leading tech schools. Here&apos;s what that looks
-                like in outcomes — careers changed, partners hiring, and the
-                press paying attention.
+                Asia&apos;s leading AI-native software development programmes.
+                Here&apos;s what that looks like in outcomes — careers changed,
+                partners hiring, and the press paying attention.
               </p>
             </div>
 

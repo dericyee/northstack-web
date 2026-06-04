@@ -27,95 +27,137 @@ const ARTICLE_INDUSTRIES = [
   "Insurance",
 ];
 
-/** Self-contained hero illustration — an AI-native workflow, in our brand style. */
+/**
+ * Self-contained hero illustration — an AI-native operations cockpit, built as
+ * inline SVG so it stays crisp at any size with no external asset. Pure brand
+ * styling, with subtle motion that respects prefers-reduced-motion.
+ */
 function HeroVisual() {
   return (
     <div className="hero-visual reveal" aria-hidden="true">
-      <svg viewBox="0 0 480 440" fill="none" role="img" aria-label="AI-native workflow illustration">
+      <svg
+        viewBox="0 0 540 480"
+        fill="none"
+        role="img"
+        aria-label="An AI-native operations dashboard"
+        fontFamily="inherit"
+      >
         <defs>
-          <linearGradient id="hvg" x1="0" y1="0" x2="480" y2="440">
+          <linearGradient id="hvg" x1="0" y1="0" x2="540" y2="480">
             <stop stopColor="#3d63f5" />
             <stop offset="1" stopColor="#5b82ff" />
           </linearGradient>
+          <linearGradient id="hvg2" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#5b82ff" />
+            <stop offset="1" stopColor="#3d63f5" />
+          </linearGradient>
           <linearGradient id="hva" x1="0" y1="0" x2="0" y2="1">
-            <stop stopColor="#3d63f5" stopOpacity="0.22" />
+            <stop stopColor="#3d63f5" stopOpacity="0.26" />
             <stop offset="1" stopColor="#3d63f5" stopOpacity="0" />
           </linearGradient>
+          <radialGradient id="hvglow" cx="0.5" cy="0.5" r="0.5">
+            <stop stopColor="#5b82ff" stopOpacity="0.55" />
+            <stop offset="1" stopColor="#5b82ff" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient id="hvglow2" cx="0.5" cy="0.5" r="0.5">
+            <stop stopColor="#7c4dff" stopOpacity="0.4" />
+            <stop offset="1" stopColor="#7c4dff" stopOpacity="0" />
+          </radialGradient>
           <filter id="hvs" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="18" stdDeviation="26" floodColor="#1b2b6b" floodOpacity="0.16" />
+            <feDropShadow dx="0" dy="22" stdDeviation="30" floodColor="#16235e" floodOpacity="0.20" />
           </filter>
-          <filter id="hvs2" x="-40%" y="-40%" width="180%" height="180%">
-            <feDropShadow dx="0" dy="10" stdDeviation="16" floodColor="#1b2b6b" floodOpacity="0.18" />
+          <filter id="hvs2" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="12" stdDeviation="18" floodColor="#16235e" floodOpacity="0.20" />
           </filter>
+          <pattern id="hvdots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1.5" fill="#3d63f5" opacity="0.10" />
+          </pattern>
           <clipPath id="hvcard">
-            <rect x="64" y="70" width="352" height="252" rx="20" />
+            <rect x="82" y="104" width="392" height="300" rx="24" />
           </clipPath>
         </defs>
 
-        {/* soft backdrop */}
-        <rect x="36" y="44" width="408" height="312" rx="26" fill="url(#hvg)" opacity="0.09" />
+        {/* ambient glows + grid */}
+        <circle cx="400" cy="130" r="150" fill="url(#hvglow)" className="hv-breathe" />
+        <circle cx="150" cy="380" r="140" fill="url(#hvglow2)" className="hv-breathe hv-breathe-b" />
+        <rect x="60" y="80" width="430" height="340" rx="28" fill="url(#hvdots)" opacity="0.7" />
 
-        {/* main app card */}
+        {/* main dashboard card */}
         <g filter="url(#hvs)">
           <g clipPath="url(#hvcard)">
-            <rect x="64" y="70" width="352" height="252" fill="#ffffff" />
-            {/* header bar */}
-            <rect x="64" y="70" width="352" height="46" fill="url(#hvg)" />
-            <circle cx="86" cy="93" r="4.5" fill="#ffffff" opacity="0.85" />
-            <circle cx="102" cy="93" r="4.5" fill="#ffffff" opacity="0.6" />
-            <circle cx="118" cy="93" r="4.5" fill="#ffffff" opacity="0.4" />
-            <rect x="300" y="85" width="96" height="16" rx="8" fill="#ffffff" opacity="0.28" />
+            <rect x="82" y="104" width="392" height="300" fill="#ffffff" />
 
-            {/* chart gridlines */}
-            <line x1="88" y1="160" x2="392" y2="160" stroke="#eef0f4" strokeWidth="1" />
-            <line x1="88" y1="205" x2="392" y2="205" stroke="#eef0f4" strokeWidth="1" />
-            <line x1="88" y1="250" x2="392" y2="250" stroke="#eef0f4" strokeWidth="1" />
+            {/* header */}
+            <circle cx="108" cy="134" r="13" fill="url(#hvg)" />
+            <path d="M103 134l3.5 3.5 6-6.5" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            <text x="130" y="131" fontSize="13" fontWeight="700" fill="#0b1020">Northstack · Ops</text>
+            <text x="130" y="146" fontSize="10.5" fontWeight="500" fill="#8a8f98">AI-native workflow</text>
+            <rect x="386" y="122" width="68" height="24" rx="12" fill="#e8f7ef" />
+            <circle cx="400" cy="134" r="3.5" fill="#1fb877" className="hv-blink" />
+            <text x="410" y="138" fontSize="10.5" fontWeight="700" fill="#149a63">Live</text>
+            <line x1="82" y1="162" x2="474" y2="162" stroke="#eef0f4" strokeWidth="1" />
 
-            {/* area + rising line */}
+            {/* chart */}
+            <line x1="108" y1="208" x2="448" y2="208" stroke="#f1f2f6" strokeWidth="1" />
+            <line x1="108" y1="252" x2="448" y2="252" stroke="#f1f2f6" strokeWidth="1" />
+            <line x1="108" y1="296" x2="448" y2="296" stroke="#f1f2f6" strokeWidth="1" />
             <path
-              d="M88 250 C140 244 168 214 212 204 C262 192 300 156 392 138 L392 286 L88 286 Z"
+              d="M108 296 C156 288 188 250 236 240 C290 228 330 196 392 176 C420 167 436 158 448 150 L448 312 L108 312 Z"
               fill="url(#hva)"
             />
             <path
-              d="M88 250 C140 244 168 214 212 204 C262 192 300 156 392 138"
+              className="hv-draw"
+              d="M108 296 C156 288 188 250 236 240 C290 228 330 196 392 176 C420 167 436 158 448 150"
               stroke="url(#hvg)"
-              strokeWidth="3"
+              strokeWidth="3.2"
               strokeLinecap="round"
             />
-            <circle cx="212" cy="204" r="4.5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
-            <circle cx="392" cy="138" r="4.5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
+            <circle cx="236" cy="240" r="4.5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
+            <g className="hv-ping">
+              <circle cx="448" cy="150" r="11" fill="#3d63f5" opacity="0.18" />
+            </g>
+            <circle cx="448" cy="150" r="5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
 
-            {/* footer stat chips */}
-            <rect x="88" y="300" width="78" height="12" rx="6" fill="#eef2ff" />
-            <rect x="176" y="300" width="60" height="12" rx="6" fill="#f0f1f4" />
-            <rect x="246" y="300" width="48" height="12" rx="6" fill="#f0f1f4" />
+            {/* KPI tiles */}
+            <rect x="108" y="330" width="160" height="58" rx="14" fill="#f6f7fb" />
+            <text x="124" y="360" fontSize="24" fontWeight="800" fill="url(#hvg)">1,240</text>
+            <text x="124" y="377" fontSize="10.5" fontWeight="600" fill="#8a8f98">hours saved / mo</text>
+            <rect x="288" y="330" width="160" height="58" rx="14" fill="#f6f7fb" />
+            <text x="304" y="360" fontSize="24" fontWeight="800" fill="url(#hvg2)">82%</text>
+            <text x="304" y="377" fontSize="10.5" fontWeight="600" fill="#8a8f98">gross margin</text>
           </g>
         </g>
 
-        {/* floating "AI agent" badge */}
+        {/* floating: AI agent pill */}
         <g className="hv-float hv-float-a" filter="url(#hvs2)">
-          <rect x="316" y="44" width="132" height="46" rx="23" fill="url(#hvg)" />
+          <rect x="350" y="66" width="156" height="50" rx="25" fill="url(#hvg)" />
           <path
-            d="M339 60l2.4 5.6L347 68l-5.6 2.4L339 76l-2.4-5.6L331 68l5.6-2.4z"
+            d="M378 84l2.7 6.3 6.3 2.7-6.3 2.7-2.7 6.3-2.7-6.3-6.3-2.7 6.3-2.7z"
             fill="#fff"
           />
-          <rect x="352" y="59" width="74" height="7" rx="3.5" fill="#ffffff" opacity="0.95" />
-          <rect x="352" y="70" width="50" height="6" rx="3" fill="#ffffff" opacity="0.6" />
+          <text x="394" y="88" fontSize="12.5" fontWeight="700" fill="#fff">AI agent</text>
+          <text x="394" y="103" fontSize="10" fontWeight="500" fill="#fff" opacity="0.85">running 4 tasks</text>
         </g>
 
-        {/* floating "shipped" node */}
+        {/* floating: automation card */}
         <g className="hv-float hv-float-b" filter="url(#hvs2)">
-          <rect x="40" y="288" width="150" height="60" rx="16" fill="#ffffff" />
-          <circle cx="70" cy="318" r="15" fill="#ecf1ff" />
-          <path
-            d="M63 318l4.5 4.5L78 312"
-            stroke="url(#hvg)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <rect x="96" y="308" width="78" height="8" rx="4" fill="#1b2030" opacity="0.82" />
-          <rect x="96" y="324" width="54" height="7" rx="3.5" fill="#9aa0ab" opacity="0.7" />
+          <rect x="30" y="250" width="168" height="74" rx="18" fill="#ffffff" />
+          <circle cx="56" cy="276" r="13" fill="#ecf1ff" />
+          <path d="M56 270v6l4 3" stroke="url(#hvg)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="78" y="273" fontSize="11.5" fontWeight="700" fill="#0b1020">Automation</text>
+          <text x="78" y="287" fontSize="9.5" fontWeight="500" fill="#8a8f98">intake → draft → send</text>
+          <rect x="46" y="300" width="138" height="7" rx="3.5" fill="#eef1f6" />
+          <rect x="46" y="300" width="138" height="7" rx="3.5" fill="url(#hvg)" className="hv-progress" />
+        </g>
+
+        {/* floating: output stat */}
+        <g className="hv-float hv-float-a" filter="url(#hvs2)">
+          <rect x="360" y="356" width="150" height="78" rx="18" fill="#ffffff" />
+          <circle cx="388" cy="384" r="15" fill="#e8f7ef" />
+          <path d="M388 391v-13M383 384l5-6 5 6" stroke="#1fb877" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="414" y="383" fontSize="20" fontWeight="800" fill="#0b1020">+312%</text>
+          <text x="414" y="399" fontSize="10" fontWeight="600" fill="#8a8f98">output per head</text>
+          <text x="378" y="424" fontSize="9.5" fontWeight="500" fill="#8a8f98">vs. pre-AI baseline</text>
         </g>
       </svg>
     </div>
