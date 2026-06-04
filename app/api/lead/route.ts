@@ -46,15 +46,14 @@ export async function POST(req: Request) {
     );
   }
 
-  // Accept either the original env names or the ones set in Vercel
-  // (AIRTABLE_PAT_TOKEN = personal access token, AIRTABLE_BASE_TOKEN = base id).
+  // Only the Airtable token comes from the environment (it's the one secret).
+  // The destination — the "northstack" table in the "Company / Collab CRM"
+  // base — is hard-coded so the form can never write to the wrong place,
+  // regardless of which base id happens to be set in the host's env vars.
   const apiKey =
     process.env.AIRTABLE_PAT_TOKEN || process.env.AIRTABLE_API_KEY;
-  const baseId =
-    process.env.AIRTABLE_BASE_TOKEN ||
-    process.env.AIRTABLE_BASE_ID ||
-    "appoQAyt0FaRRf9YM";
-  const table = process.env.AIRTABLE_TABLE_NAME || "Leads";
+  const baseId = "appKKq9jZB8Y40mDA"; // Company / Collab CRM
+  const table = "northstack";
 
   if (!apiKey) {
     console.error(
@@ -66,20 +65,27 @@ export async function POST(req: Request) {
     );
   }
 
+  // Map the form payload onto the "northstack" table's actual field names.
   const fields: Record<string, unknown> = {
     Name: name,
     Email: email,
-    Message: message,
-    Source: "northstack.ai",
-    Status: "New",
-    "Submitted At": new Date().toISOString(),
   };
   if (body.company?.trim()) fields.Company = body.company.trim();
-  if (body.role?.trim()) fields.Role = body.role.trim();
-  if (body.companySize?.trim()) fields["Company Size"] = body.companySize.trim();
+  if (body.companySize?.trim()) fields["Company size"] = body.companySize.trim();
   if (Array.isArray(body.interestedIn) && body.interestedIn.length > 0) {
-    fields["Interested In"] = body.interestedIn;
+    fields["What they need"] = body.interestedIn.join(", ");
   }
+  // The table has no "Role" field, so fold it into the engagement note.
+  const engagement = [
+    body.role?.trim() ? `Role: ${body.role.trim()}` : "",
+    message,
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+  if (engagement) fields.Engagement = engagement;
+  // Where they submitted from, if the browser sent a referer.
+  const pageUrl = req.headers.get("referer");
+  if (pageUrl) fields["Page URL"] = pageUrl;
 
   try {
     const res = await fetch(
