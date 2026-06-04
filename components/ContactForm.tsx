@@ -41,6 +41,7 @@ const HEAR_OPTIONS = [
 
 export default function ContactForm() {
   const [interests, setInterests] = useState<string[]>([]);
+  const [interestError, setInterestError] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
     "idle"
   );
@@ -52,10 +53,19 @@ export default function ContactForm() {
         ? prev.filter((v) => v !== value)
         : [...prev, value]
     );
+    setInterestError(false);
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    // At least one interest is required (custom control — not natively validated).
+    if (interests.length === 0) {
+      setInterestError(true);
+      return;
+    }
+    setInterestError(false);
+
     setStatus("sending");
     setError("");
 
@@ -123,7 +133,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="form" onSubmit={onSubmit} noValidate>
+    <form className="form" onSubmit={onSubmit}>
       {status === "error" && (
         <div className="form-error">
           {error}
@@ -155,11 +165,11 @@ export default function ContactForm() {
       <div className="field-row">
         <div className="field">
           <label htmlFor="company">Company</label>
-          <input id="company" name="company" placeholder="Acme Brokerage" />
+          <input id="company" name="company" placeholder="Acme Brokerage" required />
         </div>
         <div className="field">
           <label htmlFor="role">Your role</label>
-          <input id="role" name="role" placeholder="Founder / COO" />
+          <input id="role" name="role" placeholder="Founder / COO" required />
         </div>
       </div>
 
@@ -183,6 +193,7 @@ export default function ContactForm() {
               name="phoneNumber"
               type="tel"
               placeholder="12-345 6789"
+              required
             />
           </div>
         </div>
@@ -192,6 +203,7 @@ export default function ContactForm() {
             id="industry"
             name="industry"
             placeholder="e.g. Brokerage, Healthcare, Logistics"
+            required
           />
         </div>
       </div>
@@ -199,7 +211,7 @@ export default function ContactForm() {
       <div className="field-row">
         <div className="field">
           <label htmlFor="companySize">Company size</label>
-          <select id="companySize" name="companySize" defaultValue="">
+          <select id="companySize" name="companySize" defaultValue="" required>
             <option value="" disabled>
               Select team size…
             </option>
@@ -211,7 +223,9 @@ export default function ContactForm() {
           </select>
         </div>
         <div className="field">
-          <label htmlFor="howHeard">How did you hear about us?</label>
+          <label htmlFor="howHeard">
+            How did you hear about us? <span className="field-optional">(optional)</span>
+          </label>
           <select id="howHeard" name="howHeard" defaultValue="">
             <option value="" disabled>
               Select one…
@@ -227,7 +241,11 @@ export default function ContactForm() {
 
       <div className="field">
         <label>What are you most interested in?</label>
-        <div className="chips">
+        <div
+          className="chips"
+          role="group"
+          aria-invalid={interestError}
+        >
           {INTERESTS.map((item) => (
             <span
               key={item}
@@ -247,6 +265,9 @@ export default function ContactForm() {
             </span>
           ))}
         </div>
+        {interestError && (
+          <span className="field-msg">Please pick at least one.</span>
+        )}
       </div>
 
       <div className="field">
@@ -255,6 +276,7 @@ export default function ContactForm() {
           id="message"
           name="message"
           placeholder="A few lines on where the manual work piles up, or what you'd love AI to take off your plate."
+          required
         />
       </div>
 
