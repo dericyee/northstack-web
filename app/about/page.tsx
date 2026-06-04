@@ -5,14 +5,14 @@ import SiteFooter from "@/components/SiteFooter";
 import {
   StatBand,
   HiringPartnersStrip,
-  SuccessStories,
+  TeamStrip,
   PressStrip,
 } from "@/components/SocialProof";
 
 export const metadata: Metadata = {
   title: "About — Northstack",
   description:
-    "Northstack is built by Deric Yee, founder of Sigma School. Years of building software and teaching people to build with code and AI revealed the same inefficiencies inside companies everywhere.",
+    "Northstack is built by Deric Yee, founder of Sigmaschool. Years of building software and teaching people to build with code and AI revealed the same inefficiencies inside companies everywhere.",
 };
 
 function LinkIcon() {
@@ -61,7 +61,12 @@ export default function About() {
           <div className="container">
             <div className="founder">
               <aside className="founder-card reveal">
-                <div className="avatar">DY</div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="founder-photo"
+                  src="/team/deric-yee.png"
+                  alt="Deric Yee, founder of Northstack and Sigmaschool"
+                />
                 <h3>Deric Yee</h3>
                 <div className="founder-role">Founder, Northstack</div>
                 <div className="founder-links">
@@ -70,7 +75,7 @@ export default function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon /> Sigma School — About
+                    <LinkIcon /> Sigmaschool — About
                   </a>
                   <a
                     href="https://sigmaschool.co"
@@ -85,35 +90,34 @@ export default function About() {
               <div className="prose reveal">
                 <p>
                   Northstack is founded by <strong>Deric Yee</strong>, the
-                  founder of <strong>Sigma School</strong> — one of Southeast
+                  founder of <strong>Sigmaschool</strong> — one of Southeast
                   Asia&apos;s leading coding bootcamps, known for a bold
                   money-back promise: get a tech job, or get your money back.
                 </p>
                 <p>
-                  Deric&apos;s path into building was the long way round. He
-                  studied finance and venture capital at Lancaster University,
-                  graduating with First Class Honours, and started his career in
-                  VC — crunching numbers and writing market research. He quickly
-                  realised he didn&apos;t want to analyse companies from the
-                  outside; he wanted to build them. So in 2019 he left, taught
-                  himself to code, and started shipping products.
+                  Sigmaschool started as a frustration, not a business plan.
+                  Deric kept watching smart, hungry people try to break into
+                  tech and hit the same wall — no time or money for a four-year
+                  degree, online courses that dumped videos with no guidance,
+                  platforms that taught skills but not outcomes. They could
+                  learn… but they couldn&apos;t get hired.
                 </p>
                 <p>
-                  Since then he&apos;s built and launched real software:{" "}
-                  <strong>Codeo</strong>, a mobile app for learning to code in
-                  bite-sized lessons; <strong>TryJobier</strong>, an automated
-                  job-search platform; and co-founded{" "}
-                  <strong>The Hacker Collective</strong>, a startup builder
-                  backing technology ventures across the region. In 2022 he
-                  founded Sigma School to take complete beginners and turn them
-                  into working software developers in months, not years.
+                  So he built the place he wished existed when he was learning:
+                  somewhere you could <strong>learn tech</strong>, get{" "}
+                  <strong>mentored</strong>, use <strong>AI properly</strong>,
+                  ship <strong>real projects</strong>, and land a{" "}
+                  <strong>real job</strong> — all in one ecosystem, on one path.
+                  What started as a side project became Sigmaschool. Hundreds of
+                  graduates later, the path still works — the standard
+                  hasn&apos;t moved, only the curriculum has, because AI keeps
+                  moving the floor.
                 </p>
 
                 <p className="pull">
-                  &ldquo;Teaching thousands of people to build with code — and
-                  now AI — showed me the same thing over and over: the
-                  bottleneck is rarely talent. It&apos;s the way the work is
-                  done.&rdquo;
+                  &ldquo;Learning alone is hard. Learning with guidance,
+                  community, and real-world context isn&apos;t. That&apos;s the
+                  entire bet.&rdquo;
                 </p>
 
                 <h3>Why Northstack</h3>
@@ -167,14 +171,14 @@ export default function About() {
             </div>
           </div>
         </section>
-        {/* SOCIAL PROOF — the Sigma School track record */}
+        {/* SOCIAL PROOF — the Sigmaschool track record */}
         <section className="section">
           <div className="container">
             <div className="section-head reveal">
               <span className="eyebrow">The track record</span>
               <h2>
                 Proof, not promises — from{" "}
-                <span className="grad-text">Sigma School</span>.
+                <span className="grad-text">Sigmaschool</span>.
               </h2>
               <p>
                 The same people building Northstack already ran one of Southeast
@@ -195,13 +199,13 @@ export default function About() {
             <HiringPartnersStrip />
 
             <div className="nx-proof-sub reveal">
-              <span className="eyebrow">Success stories</span>
+              <span className="eyebrow">The team</span>
               <p>
-                Career switchers — doctors, coaches, fresh grads — now shipping
-                software in production.
+                A small, senior team of builders and instructors — the people
+                behind both Sigmaschool and Northstack.
               </p>
             </div>
-            <SuccessStories />
+            <TeamStrip />
 
             <div className="nx-proof-sub reveal">
               <span className="eyebrow">As featured in</span>

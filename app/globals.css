@@ -2010,3 +2010,161 @@ html:not(.js-ready) .nx-bar-fill {
     animation: none !important;
   }
 }
+
+/* ======================================================================
+   Real imagery — partner logos, team photos, press shots, founder photo
+   ====================================================================== */
+
+/* Hiring-partner logos (real images inside the marquee chips) */
+.nx-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  padding: 14px 24px;
+}
+.nx-logo img {
+  max-height: 34px;
+  max-width: 130px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+.nx-logo:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Team strip — real human photos */
+.nx-team {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+@media (max-width: 860px) {
+  .nx-team {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .nx-team {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.nx-team-card {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+.nx-team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--line-strong);
+}
+.nx-team-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--surface-2);
+}
+.nx-team-card figcaption {
+  padding: 12px 12px 14px;
+}
+.nx-team-name {
+  display: block;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: -0.01em;
+}
+.nx-team-role {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Press cards — preview screenshot + publication logo */
+.nx-press-card {
+  padding: 0;
+  overflow: hidden;
+}
+.nx-press-shot {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+.nx-press-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease);
+}
+.nx-press-card:hover .nx-press-shot img {
+  transform: scale(1.04);
+}
+.nx-press-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  flex: 1;
+}
+.nx-press-logo {
+  height: 26px;
+}
+.nx-press-logo img {
+  height: 100%;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+/* Founder photos (replacing the initials avatars) */
+.nx-founder-photo,
+.founder-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  background: var(--surface-2);
+}
+
+/* Contact CTA — small stack of real faces */
+.cta-faces {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cta-faces-stack {
+  display: inline-flex;
+}
+.cta-faces-stack img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--surface);
+  background: var(--surface-2);
+  margin-left: -10px;
+  box-shadow: var(--shadow-soft);
+}
+.cta-faces-stack img:first-child {
+  margin-left: 0;
+}
+.cta-faces span {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}

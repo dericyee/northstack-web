@@ -1,8 +1,8 @@
 import {
   proofStats,
   hiringPartners,
-  successStories,
   pressFeatures,
+  team,
 } from "./socialProofData";
 
 function ArrowRight() {
@@ -19,7 +19,7 @@ function ArrowRight() {
   );
 }
 
-/** Counting stat band — the headline Sigma School track record. */
+/** Counting stat band — the headline Sigmaschool track record. */
 export function StatBand() {
   return (
     <div className="nx-statband reveal">
@@ -41,7 +41,7 @@ export function StatBand() {
   );
 }
 
-/** Infinite marquee of hiring-partner wordmarks. */
+/** Infinite marquee of real hiring-partner logos. */
 export function HiringPartnersStrip() {
   const row = [...hiringPartners, ...hiringPartners];
   return (
@@ -49,9 +49,10 @@ export function HiringPartnersStrip() {
       <div className="nx-marquee-fade nx-marquee-fade-l" aria-hidden="true" />
       <div className="nx-marquee-fade nx-marquee-fade-r" aria-hidden="true" />
       <div className="nx-marquee-track">
-        {row.map((name, i) => (
-          <span className="nx-logo" key={`${name}-${i}`}>
-            {name}
+        {row.map((p, i) => (
+          <span className="nx-logo" key={`${p.name}-${i}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={p.logo} alt={p.name} loading="lazy" />
           </span>
         ))}
       </div>
@@ -59,33 +60,25 @@ export function HiringPartnersStrip() {
   );
 }
 
-/** Career-switch success stories. */
-export function SuccessStories() {
+/** The team behind Northstack — real human photos. */
+export function TeamStrip() {
   return (
-    <div className="nx-stories">
-      {successStories.map((s) => (
-        <div className="nx-story reveal" key={s.name}>
-          <div className="nx-story-avatar">{s.initials}</div>
-          <div className="nx-story-body">
-            <div className="nx-story-name">{s.name}</div>
-            <div className="nx-story-path">
-              <span className="nx-story-before">{s.before}</span>
-              <span className="nx-story-arrow">
-                <ArrowRight />
-              </span>
-              <span className="nx-story-after">
-                {s.role}
-                <em>@ {s.company}</em>
-              </span>
-            </div>
-          </div>
-        </div>
+    <div className="nx-team">
+      {team.map((m) => (
+        <figure className="nx-team-card reveal" key={m.name}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={m.image} alt={m.name} loading="lazy" />
+          <figcaption>
+            <span className="nx-team-name">{m.name}</span>
+            <span className="nx-team-role">{m.role}</span>
+          </figcaption>
+        </figure>
       ))}
     </div>
   );
 }
 
-/** Press features as linked cards. */
+/** Press features as image-rich linked cards. */
 export function PressStrip() {
   return (
     <div className="nx-press">
@@ -97,10 +90,19 @@ export function PressStrip() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="nx-press-name">{p.name}</span>
-          <span className="nx-press-title">&ldquo;{p.title}&rdquo;</span>
-          <span className="nx-press-cta">
-            Read <ArrowRight />
+          <span className="nx-press-shot">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={p.preview} alt={`${p.name} — ${p.title}`} loading="lazy" />
+          </span>
+          <span className="nx-press-meta">
+            <span className="nx-press-logo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.logo} alt={p.name} loading="lazy" />
+            </span>
+            <span className="nx-press-title">&ldquo;{p.title}&rdquo;</span>
+            <span className="nx-press-cta">
+              Read <ArrowRight />
+            </span>
           </span>
         </a>
       ))}
@@ -117,7 +119,7 @@ export default function SocialProof() {
           <span className="eyebrow">Why trust us with this</span>
           <h2>
             Built by the team behind{" "}
-            <span className="grad-text">Sigma School</span>.
+            <span className="grad-text">Sigmaschool</span>.
           </h2>
           <p>
             Before Northstack, we built one of Southeast Asia&apos;s leading
@@ -140,13 +142,13 @@ export default function SocialProof() {
         <HiringPartnersStrip />
 
         <div className="nx-proof-sub reveal">
-          <span className="eyebrow">Success stories</span>
+          <span className="eyebrow">The team</span>
           <p>
-            Doctors, coaches, fresh grads — re-tooled into builders shipping in
-            production. The same playbook re-tools your team around AI.
+            A small, senior team of builders and instructors — the same people
+            who&apos;ll be in the room with you.
           </p>
         </div>
-        <SuccessStories />
+        <TeamStrip />
 
         <div className="nx-proof-sub reveal">
           <span className="eyebrow">As featured in</span>

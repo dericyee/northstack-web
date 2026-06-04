@@ -22,21 +22,25 @@ export default function AboutDeric() {
           <span className="eyebrow">About the founder</span>
           <h2>Deric Yee.</h2>
           <p>
-            Northstack is founded by Deric Yee — finance-and-VC grad turned
-            self-taught builder, and the founder of Sigma School. He&apos;s spent
-            the last seven years shipping products and teaching thousands of
-            people to build with code and AI.
+            Northstack is founded by Deric Yee — self-taught builder and the
+            founder of Sigmaschool. He&apos;s spent years shipping products and
+            teaching thousands of people to build with code and AI.
           </p>
         </div>
 
         <div className="nx-founder reveal">
           <aside className="nx-founder-card">
-            <div className="nx-founder-avatar">DY</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="nx-founder-photo"
+              src="/team/deric-yee.png"
+              alt="Deric Yee, founder of Northstack and Sigmaschool"
+            />
             <h3>Deric Yee</h3>
-            <div className="nx-founder-role">Founder · Northstack &amp; Sigma School</div>
+            <div className="nx-founder-role">Founder · Northstack &amp; Sigmaschool</div>
             <div className="nx-founder-links">
               <a href="https://sigmaschool.co/about" target="_blank" rel="noopener noreferrer">
-                <LinkIcon /> Sigma School — About
+                <LinkIcon /> Sigmaschool — About
               </a>
               <a href="https://sigmaschool.co" target="_blank" rel="noopener noreferrer">
                 <LinkIcon /> sigmaschool.co
@@ -46,25 +50,26 @@ export default function AboutDeric() {
 
           <div className="nx-founder-prose">
             <p>
-              Deric studied finance and venture capital at Lancaster University,
-              graduating with First Class Honours, and started out in VC. He
-              quickly realised he didn&apos;t want to analyse companies from the
-              outside — he wanted to build them. So in 2019 he taught himself to
-              code and started shipping.
+              Deric started Sigmaschool out of a frustration, not a business
+              plan. He kept watching smart, hungry people try to break into tech
+              and hit the same wall — courses that dumped videos with no
+              guidance, taught skills but not outcomes, and left people able to
+              learn but unable to get hired.
             </p>
             <p>
-              Since then he&apos;s launched <strong>Codeo</strong>, a
-              learn-to-code mobile app; <strong>TryJobier</strong>, an automated
-              job-search platform; co-founded <strong>The Hacker Collective</strong>;
-              and in 2022 founded <strong>Sigma School</strong> to turn complete
-              beginners into working developers in months.
+              So he built the place he wished existed: somewhere you could learn
+              tech, get mentored, use AI properly, ship real projects, and land a
+              real job — all on one path. What started as a side project became{" "}
+              <strong>Sigmaschool</strong>, one of Southeast Asia&apos;s leading
+              coding bootcamps, with hundreds of graduates now building in
+              production.
             </p>
             <blockquote className="nx-founder-quote">
               <Star size={16} />
               <span>
-                &ldquo;Teaching thousands of people to build with code — and now
-                AI — showed me the same thing over and over: the bottleneck is
-                rarely talent. It&apos;s the way the work is done.&rdquo;
+                &ldquo;Learning alone is hard. Learning with guidance, community,
+                and real-world context isn&apos;t. That&apos;s the entire
+                bet.&rdquo;
               </span>
             </blockquote>
             <p>

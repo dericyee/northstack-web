@@ -6,6 +6,7 @@ import Star from "@/components/Star";
 import Charts from "@/components/Charts";
 import SocialProof from "@/components/SocialProof";
 import AboutDeric from "@/components/AboutDeric";
+import { team } from "@/components/socialProofData";
 
 const SEQUOIA_URL = "https://www.sequoiacap.com/article/services-the-new-software/";
 
@@ -570,7 +571,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SOCIAL PROOF — Sigma School track record */}
+        {/* SOCIAL PROOF — Sigmaschool track record */}
         <SocialProof />
 
         {/* ABOUT THE FOUNDER */}
@@ -671,6 +672,15 @@ export default function Home() {
                     <span>
                       <Dot /> Start with a small paid pilot, never a big contract
                     </span>
+                  </div>
+                  <div className="cta-faces">
+                    <div className="cta-faces-stack" aria-hidden="true">
+                      {team.slice(0, 5).map((m) => (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img key={m.name} src={m.image} alt="" loading="lazy" />
+                      ))}
+                    </div>
+                    <span>Real builders — Deric and the Sigmaschool team.</span>
                   </div>
                   <div className="cta-direct">
                     <span>Prefer to reach us directly?</span>
