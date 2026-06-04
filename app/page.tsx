@@ -3,6 +3,9 @@ import Enhance from "@/components/Enhance";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import Star from "@/components/Star";
+import Charts from "@/components/Charts";
+import SocialProof from "@/components/SocialProof";
+import AboutDeric from "@/components/AboutDeric";
 
 const SEQUOIA_URL = "https://www.sequoiacap.com/article/services-the-new-software/";
 
@@ -258,6 +261,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* BY THE NUMBERS — animated charts */}
+        <Charts />
 
         {/* THE PROBLEM */}
         <section className="section">
@@ -563,6 +569,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* SOCIAL PROOF — Sigma School track record */}
+        <SocialProof />
+
+        {/* ABOUT THE FOUNDER */}
+        <AboutDeric />
 
         {/* FAQ */}
         <section className="section section-alt">

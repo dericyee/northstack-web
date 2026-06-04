@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Enhance from "@/components/Enhance";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import {
+  StatBand,
+  HiringPartnersStrip,
+  SuccessStories,
+  PressStrip,
+} from "@/components/SocialProof";
 
 export const metadata: Metadata = {
   title: "About — Northstack",
@@ -60,25 +66,18 @@ export default function About() {
                 <div className="founder-role">Founder, Northstack</div>
                 <div className="founder-links">
                   <a
-                    href="https://dericyee.com"
+                    href="https://sigmaschool.co/about"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon /> dericyee.com
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/dericyjy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkIcon /> LinkedIn
+                    <LinkIcon /> Sigma School — About
                   </a>
                   <a
                     href="https://sigmaschool.co"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <LinkIcon /> Sigma School
+                    <LinkIcon /> sigmaschool.co
                   </a>
                 </div>
               </aside>
@@ -166,6 +165,49 @@ export default function About() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        {/* SOCIAL PROOF — the Sigma School track record */}
+        <section className="section">
+          <div className="container">
+            <div className="section-head reveal">
+              <span className="eyebrow">The track record</span>
+              <h2>
+                Proof, not promises — from{" "}
+                <span className="grad-text">Sigma School</span>.
+              </h2>
+              <p>
+                The same people building Northstack already ran one of Southeast
+                Asia&apos;s leading coding bootcamps. Here&apos;s what that looks
+                like in outcomes — careers changed, partners hiring, and the
+                press paying attention.
+              </p>
+            </div>
+
+            <StatBand />
+
+            <div className="nx-proof-sub reveal">
+              <span className="eyebrow">Hiring partners</span>
+              <p>
+                Companies that hire our graduates on output, not credentials.
+              </p>
+            </div>
+            <HiringPartnersStrip />
+
+            <div className="nx-proof-sub reveal">
+              <span className="eyebrow">Success stories</span>
+              <p>
+                Career switchers — doctors, coaches, fresh grads — now shipping
+                software in production.
+              </p>
+            </div>
+            <SuccessStories />
+
+            <div className="nx-proof-sub reveal">
+              <span className="eyebrow">As featured in</span>
+              <p>Coverage from publications that watch this space closely.</p>
+            </div>
+            <PressStrip />
           </div>
         </section>
       </main>

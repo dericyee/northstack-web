@@ -46,12 +46,20 @@ export async function POST(req: Request) {
     );
   }
 
-  const apiKey = process.env.AIRTABLE_API_KEY;
-  const baseId = process.env.AIRTABLE_BASE_ID || "appoQAyt0FaRRf9YM";
+  // Accept either the original env names or the ones set in Vercel
+  // (AIRTABLE_PAT_TOKEN = personal access token, AIRTABLE_BASE_TOKEN = base id).
+  const apiKey =
+    process.env.AIRTABLE_PAT_TOKEN || process.env.AIRTABLE_API_KEY;
+  const baseId =
+    process.env.AIRTABLE_BASE_TOKEN ||
+    process.env.AIRTABLE_BASE_ID ||
+    "appoQAyt0FaRRf9YM";
   const table = process.env.AIRTABLE_TABLE_NAME || "Leads";
 
   if (!apiKey) {
-    console.error("AIRTABLE_API_KEY is not set — lead was not stored.");
+    console.error(
+      "Airtable token is not set (AIRTABLE_PAT_TOKEN / AIRTABLE_API_KEY) — lead was not stored."
+    );
     return NextResponse.json(
       { error: "The form isn't connected yet. Please email us directly." },
       { status: 503 }
