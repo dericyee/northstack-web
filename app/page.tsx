@@ -46,8 +46,21 @@ function Cross() {
 
 function Dot() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-      <circle cx="8" cy="8" r="4" fill="#fff" opacity="0.85" />
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <circle cx="9" cy="9" r="8" fill="url(#dotg)" opacity="0.15" />
+      <path
+        d="M5.5 9.2l2.2 2.2L12.6 6.5"
+        stroke="url(#dotg)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <defs>
+        <linearGradient id="dotg" x1="0" y1="0" x2="18" y2="18">
+          <stop stopColor="#4f46e5" />
+          <stop offset="1" stopColor="#7c3aed" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 }
@@ -77,30 +90,20 @@ export default function Home() {
         </div>
       </header>
 
+      <div className="scroll-progress" aria-hidden="true" />
+
       <main id="top">
         {/* HERO */}
         <section className="hero">
-          <svg
-            className="hero-stars"
-            viewBox="0 0 1200 500"
-            preserveAspectRatio="xMidYMid slice"
-            aria-hidden="true"
-          >
-            <g fill="#0c0e12">
-              <circle cx="980" cy="70" r="1.6" opacity="0.5" />
-              <circle cx="1080" cy="140" r="1.2" opacity="0.35" />
-              <circle cx="900" cy="180" r="1.1" opacity="0.3" />
-              <circle cx="1130" cy="60" r="1.4" opacity="0.4" />
-              <circle cx="1040" cy="240" r="1" opacity="0.25" />
-              <circle cx="860" cy="90" r="1" opacity="0.25" />
-            </g>
-          </svg>
+          <span className="blob blob-a" aria-hidden="true" />
+          <span className="blob blob-b" aria-hidden="true" />
           <div className="container">
             <div className="reveal">
               <span className="eyebrow">AI-native transformation studio</span>
             </div>
             <h1 className="reveal" style={{ marginTop: 22 }}>
-              Become AI-native before your competitors do.
+              Become <span className="grad-text">AI-native</span> before your
+              competitors do.
             </h1>
             <p className="hero-lede reveal">
               We&apos;ve built software for years and kept seeing the same thing:
@@ -119,16 +122,22 @@ export default function Home() {
             </div>
             <div className="hero-meta reveal">
               <div className="stat">
-                <strong>$6</strong>
+                <strong data-count="6" data-prefix="$">
+                  $6
+                </strong>
                 <span>spent on services for every $1 on software</span>
               </div>
               <div className="stat">
-                <strong>70–80%</strong>
-                <span>margins AI-native operators can reach</span>
+                <strong data-count="80" data-suffix="%">
+                  80%
+                </strong>
+                <span>software-like margins — not the usual 20–30%</span>
               </div>
               <div className="stat">
-                <strong>Your niche</strong>
-                <span>stays yours — we bring the AI, not the expertise</span>
+                <strong data-count="100" data-suffix="%">
+                  100%
+                </strong>
+                <span>of the systems and code stay yours</span>
               </div>
             </div>
           </div>
@@ -595,26 +604,10 @@ export default function Home() {
         <section id="contact" className="section">
           <div className="container">
             <div className="cta reveal">
-              <svg
-                className="hero-stars"
-                viewBox="0 0 1200 500"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-                style={{ opacity: 0.25 }}
-              >
-                <g fill="#ffffff">
-                  <circle cx="120" cy="80" r="1.6" />
-                  <circle cx="260" cy="150" r="1.1" />
-                  <circle cx="80" cy="220" r="1" />
-                  <circle cx="1050" cy="90" r="1.4" />
-                  <circle cx="1140" cy="200" r="1.1" />
-                </g>
-              </svg>
+              <span className="blob blob-c" aria-hidden="true" />
               <div className="cta-grid">
                 <div>
-                  <span className="eyebrow" style={{ color: "rgba(255,255,255,0.6)" }}>
-                    Let&apos;s chat
-                  </span>
+                  <span className="eyebrow">Let&apos;s chat</span>
                   <h2 style={{ marginTop: 16 }}>
                     Tell us where the manual work piles up.
                   </h2>
