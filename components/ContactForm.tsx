@@ -83,6 +83,7 @@ export default function ContactForm() {
       industry: String(fd.get("industry") || ""),
       companySize: String(fd.get("companySize") || ""),
       howHeard: String(fd.get("howHeard") || ""),
+      referrer: String(fd.get("referrer") || ""),
       message: String(fd.get("message") || ""),
       website: String(fd.get("website") || ""), // honeypot
       interestedIn: interests,
@@ -237,6 +238,17 @@ export default function ContactForm() {
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="field">
+        <label htmlFor="referrer">
+          Who referred you? <span className="field-optional">(optional)</span>
+        </label>
+        <input
+          id="referrer"
+          name="referrer"
+          placeholder="Name of the person or company that referred you"
+        />
       </div>
 
       <div className="field">

@@ -34,7 +34,7 @@ const ARTICLE_INDUSTRIES = [
  */
 function HeroVisual() {
   return (
-    <div className="hero-visual reveal" aria-hidden="true">
+    <div className="hero-visual" aria-hidden="true">
       <svg
         viewBox="0 0 540 480"
         fill="none"
@@ -55,13 +55,13 @@ function HeroVisual() {
             <stop stopColor="#3d63f5" stopOpacity="0.26" />
             <stop offset="1" stopColor="#3d63f5" stopOpacity="0" />
           </linearGradient>
-          <radialGradient id="hvglow" cx="0.5" cy="0.5" r="0.5">
-            <stop stopColor="#5b82ff" stopOpacity="0.55" />
-            <stop offset="1" stopColor="#5b82ff" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="hvglow2" cx="0.5" cy="0.5" r="0.5">
-            <stop stopColor="#7c4dff" stopOpacity="0.4" />
-            <stop offset="1" stopColor="#7c4dff" stopOpacity="0" />
+          <linearGradient id="hvshine" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#ffffff" stopOpacity="0.22" />
+            <stop offset="0.5" stopColor="#ffffff" stopOpacity="0" />
+          </linearGradient>
+          <radialGradient id="hvspot" cx="0.5" cy="0.5" r="0.5">
+            <stop stopColor="#ffffff" stopOpacity="0.5" />
+            <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
           </radialGradient>
           <filter id="hvs" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow dx="0" dy="22" stdDeviation="30" floodColor="#16235e" floodOpacity="0.20" />
@@ -70,17 +70,18 @@ function HeroVisual() {
             <feDropShadow dx="0" dy="12" stdDeviation="18" floodColor="#16235e" floodOpacity="0.20" />
           </filter>
           <pattern id="hvdots" width="22" height="22" patternUnits="userSpaceOnUse">
-            <circle cx="1.5" cy="1.5" r="1.5" fill="#3d63f5" opacity="0.10" />
+            <circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" opacity="0.16" />
           </pattern>
           <clipPath id="hvcard">
             <rect x="82" y="104" width="392" height="300" rx="24" />
           </clipPath>
         </defs>
 
-        {/* ambient glows + grid */}
-        <circle cx="400" cy="130" r="150" fill="url(#hvglow)" className="hv-breathe" />
-        <circle cx="150" cy="380" r="140" fill="url(#hvglow2)" className="hv-breathe hv-breathe-b" />
-        <rect x="60" y="80" width="430" height="340" rx="28" fill="url(#hvdots)" opacity="0.7" />
+        {/* bold gradient backdrop panel */}
+        <rect x="22" y="46" width="496" height="392" rx="34" fill="url(#hvg)" />
+        <circle cx="430" cy="120" r="150" fill="url(#hvspot)" className="hv-breathe" />
+        <rect x="22" y="46" width="496" height="392" rx="34" fill="url(#hvdots)" />
+        <rect x="22" y="46" width="496" height="392" rx="34" fill="url(#hvshine)" />
 
         {/* main dashboard card */}
         <g filter="url(#hvs)">
@@ -130,13 +131,14 @@ function HeroVisual() {
 
         {/* floating: AI agent pill */}
         <g className="hv-float hv-float-a" filter="url(#hvs2)">
-          <rect x="350" y="66" width="156" height="50" rx="25" fill="url(#hvg)" />
+          <rect x="350" y="64" width="158" height="50" rx="25" fill="#ffffff" />
+          <circle cx="375" cy="89" r="13" fill="url(#hvg)" />
           <path
-            d="M378 84l2.7 6.3 6.3 2.7-6.3 2.7-2.7 6.3-2.7-6.3-6.3-2.7 6.3-2.7z"
+            d="M375 82l1.7 4 4 1.7-4 1.7-1.7 4-1.7-4-4-1.7 4-1.7z"
             fill="#fff"
           />
-          <text x="394" y="88" fontSize="12.5" fontWeight="700" fill="#fff">AI agent</text>
-          <text x="394" y="103" fontSize="10" fontWeight="500" fill="#fff" opacity="0.85">running 4 tasks</text>
+          <text x="396" y="86" fontSize="12.5" fontWeight="700" fill="#0b1020">AI agent</text>
+          <text x="396" y="101" fontSize="10" fontWeight="500" fill="#8a8f98">running 4 tasks</text>
         </g>
 
         {/* floating: automation card */}
