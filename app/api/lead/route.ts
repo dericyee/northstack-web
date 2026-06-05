@@ -11,6 +11,7 @@ type LeadPayload = {
   industry?: string;
   companySize?: string;
   howHeard?: string;
+  referrer?: string;
   interestedIn?: string[];
   message?: string;
   // honeypot — bots fill this, humans never see it
@@ -95,6 +96,7 @@ export async function POST(req: Request) {
   if (body.industry?.trim()) fields.Industry = body.industry.trim();
   if (body.companySize?.trim()) fields["Company size"] = body.companySize.trim();
   if (body.howHeard?.trim()) fields["How did you hear"] = body.howHeard.trim();
+  if (body.referrer?.trim()) fields.Referrer = body.referrer.trim();
   if (Array.isArray(body.interestedIn) && body.interestedIn.length > 0) {
     fields["What they need"] = body.interestedIn.join(", ");
   }

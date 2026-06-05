@@ -108,6 +108,14 @@ export default function AboutDeric() {
               inside established teams so the expertise they&apos;ve spent years
               building compounds with AI instead of being left behind by it.
             </p>
+            <p>
+              The name says the rest: <strong>north</strong> is the north star —
+              the direction that&apos;s always up — and <strong>stack</strong> is
+              the tech stack you build to get there. A stack is never finished;
+              you keep improving it, moving with where the industry is going,{" "}
+              <strong>especially AI</strong>, where the frontier shifts every few
+              weeks. Always climbing, always improving.
+            </p>
             <div className="hero-actions" style={{ marginTop: 26 }}>
               <a className="btn btn-primary" href="/about">
                 Read the full story
