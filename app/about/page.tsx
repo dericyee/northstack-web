@@ -185,6 +185,30 @@ export default function About() {
                   yours. Our job is to make it compound.
                 </p>
 
+                <h3>Where the name came from</h3>
+                <p>
+                  <strong>Northstack</strong> is two ideas in one word. The{" "}
+                  <strong>north</strong> is the north star — a fixed point you
+                  steer by, the direction that&apos;s always up. The{" "}
+                  <strong>stack</strong> is the tech stack: the tools, systems
+                  and layers of capability you build to get there.
+                </p>
+                <p>
+                  And a stack is never finished. The whole point is to keep
+                  improving it — swapping in better tools, raising the ceiling,
+                  and moving with where the industry is going rather than where
+                  it was. <strong>Especially with AI</strong>, where the frontier
+                  shifts every few weeks: the teams that keep their stack current
+                  pull away, and the ones that freeze it fall behind. So we treat
+                  &ldquo;done&rdquo; as a moving target — always climbing, always
+                  improving, always stacking the next layer on top.
+                </p>
+                <p className="pull">
+                  &ldquo;The only direction worth building in is up. Northstack
+                  is the climb — and a tech stack that keeps improving with the
+                  industry, especially AI.&rdquo;
+                </p>
+
                 <div className="hero-actions" style={{ marginTop: 28 }}>
                   <a className="btn btn-primary" href="/#contact">
                     Let&apos;s chat
