@@ -190,21 +190,23 @@ export default function About() {
                   <strong>Northstack</strong> is two ideas in one word. The{" "}
                   <strong>north</strong> is the north star — a fixed point you
                   steer by, the direction that&apos;s always up. The{" "}
-                  <strong>stack</strong> is what you build to get there: the
-                  tools, the systems, the layers of capability that compound on
-                  top of each other.
+                  <strong>stack</strong> is the tech stack: the tools, systems
+                  and layers of capability you build to get there.
                 </p>
                 <p>
-                  Put together, it&apos;s the whole philosophy in a name. Pick a
-                  true north, then keep stacking — every week a little more
-                  capable than the last. AI keeps raising the ceiling, so we
-                  treat &ldquo;done&rdquo; as a moving target: always climbing,
-                  always improving, never settling for how good last quarter
-                  was.
+                  And a stack is never finished. The whole point is to keep
+                  improving it — swapping in better tools, raising the ceiling,
+                  and moving with where the industry is going rather than where
+                  it was. <strong>Especially with AI</strong>, where the frontier
+                  shifts every few weeks: the teams that keep their stack current
+                  pull away, and the ones that freeze it fall behind. So we treat
+                  &ldquo;done&rdquo; as a moving target — always climbing, always
+                  improving, always stacking the next layer on top.
                 </p>
                 <p className="pull">
                   &ldquo;The only direction worth building in is up. Northstack
-                  is the climb, and the gear you climb with.&rdquo;
+                  is the climb — and a tech stack that keeps improving with the
+                  industry, especially AI.&rdquo;
                 </p>
 
                 <div className="hero-actions" style={{ marginTop: 28 }}>
