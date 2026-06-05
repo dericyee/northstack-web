@@ -11,6 +11,7 @@ type LeadPayload = {
   industry?: string;
   companySize?: string;
   howHeard?: string;
+  referrer?: string;
   interestedIn?: string[];
   message?: string;
   // honeypot — bots fill this, humans never see it
@@ -34,11 +35,28 @@ export async function POST(req: Request) {
 
   const name = (body.name || "").trim();
   const email = (body.email || "").trim();
+  const company = (body.company || "").trim();
+  const role = (body.role || "").trim();
+  const phone = (body.phone || "").trim();
+  const industry = (body.industry || "").trim();
+  const companySize = (body.companySize || "").trim();
   const message = (body.message || "").trim();
+  const interestedIn = Array.isArray(body.interestedIn) ? body.interestedIn : [];
 
-  if (!name || !email) {
+  // Every field is required except "How did you hear about us?" (howHeard).
+  if (
+    !name ||
+    !email ||
+    !company ||
+    !role ||
+    !phone ||
+    !industry ||
+    !companySize ||
+    !message ||
+    interestedIn.length === 0
+  ) {
     return NextResponse.json(
-      { error: "Name and email are required." },
+      { error: "Please fill in all required fields." },
       { status: 400 }
     );
   }
@@ -78,6 +96,7 @@ export async function POST(req: Request) {
   if (body.industry?.trim()) fields.Industry = body.industry.trim();
   if (body.companySize?.trim()) fields["Company size"] = body.companySize.trim();
   if (body.howHeard?.trim()) fields["How did you hear"] = body.howHeard.trim();
+  if (body.referrer?.trim()) fields.Referrer = body.referrer.trim();
   if (Array.isArray(body.interestedIn) && body.interestedIn.length > 0) {
     fields["What they need"] = body.interestedIn.join(", ");
   }

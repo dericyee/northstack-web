@@ -8,6 +8,7 @@ import {
   TeamStrip,
   PressStrip,
 } from "@/components/SocialProof";
+import { TikTokIcon, YouTubeIcon, InstagramIcon } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   title: "About — Northstack",
@@ -85,57 +86,83 @@ export default function About() {
                     <LinkIcon /> sigmaschool.co
                   </a>
                 </div>
+                <div className="founder-socials">
+                  <a
+                    href="https://www.tiktok.com/@dericjyyee"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Deric Yee on TikTok"
+                  >
+                    <TikTokIcon />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@dericyjy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Deric Yee on YouTube"
+                  >
+                    <YouTubeIcon />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/dericjyyee/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Deric Yee on Instagram"
+                  >
+                    <InstagramIcon />
+                  </a>
+                </div>
               </aside>
 
               <div className="prose reveal">
                 <p>
-                  Northstack is founded by <strong>Deric Yee</strong>, the
-                  founder of <strong>Sigmaschool</strong> — one of Southeast
-                  Asia&apos;s leading coding bootcamps, known for a bold
-                  money-back promise: get a tech job, or get your money back.
+                  Northstack is founded by <strong>Deric Yee</strong>. The thread
+                  running through everything he builds isn&apos;t education —
+                  it&apos;s the <strong>future of work</strong>, and a single
+                  conviction: AI is about to reshape our careers, our money, and
+                  our future faster than most people are ready for.
                 </p>
                 <p>
-                  Sigmaschool started as a frustration, not a business plan.
-                  Deric kept watching smart, hungry people try to break into
-                  tech and hit the same wall — no time or money for a four-year
-                  degree, online courses that dumped videos with no guidance,
-                  platforms that taught skills but not outcomes. They could
-                  learn… but they couldn&apos;t get hired.
+                  He&apos;s spent years watching that shift up close. The skills
+                  that pay are changing. Whole categories of work are being
+                  automated, while a small group of people who know how to build
+                  with AI pull further and further ahead. The gap isn&apos;t about
+                  intelligence or effort — it&apos;s about who adapts early and who
+                  gets left explaining why they didn&apos;t.
                 </p>
                 <p>
-                  So he built the place he wished existed when he was learning:
-                  somewhere you could <strong>learn tech</strong>, get{" "}
-                  <strong>mentored</strong>, use <strong>AI properly</strong>,
-                  ship <strong>real projects</strong>, and land a{" "}
-                  <strong>real job</strong> — all in one ecosystem, on one path.
-                  What started as a side project became Sigmaschool. Hundreds of
-                  graduates later, the path still works — the standard
-                  hasn&apos;t moved, only the curriculum has, because AI keeps
-                  moving the floor.
+                  <strong>Sigmaschool</strong> was his first bet on that future —
+                  a school and a set of programmes built to take complete
+                  beginners and make them genuinely AI-native: able to{" "}
+                  <strong>build with code and AI</strong>, ship{" "}
+                  <strong>real projects</strong>, and earn a place in an economy
+                  that increasingly rewards exactly that. Hundreds of people have
+                  changed careers through it. The standard hasn&apos;t moved — only
+                  the curriculum has, because AI keeps moving the floor.
                 </p>
 
                 <p className="pull">
-                  &ldquo;Learning alone is hard. Learning with guidance,
-                  community, and real-world context isn&apos;t. That&apos;s the
-                  entire bet.&rdquo;
+                  &ldquo;AI is going to reshape our careers, our money, and our
+                  future. I&apos;d rather help people get ahead of it than watch it
+                  happen to them. That&apos;s the bet.&rdquo;
                 </p>
 
                 <h3>Why Northstack</h3>
                 <p>
-                  Running a school that turns beginners into builders means
-                  living at the frontier of what AI can do — every month the
-                  tools get more capable, and the gap between teams who use them
-                  well and teams who don&apos;t gets wider. The same pattern that
-                  holds back individuals holds back companies: skilled people
-                  doing work that AI could now carry.
+                  Northstack is the next bet — the same conviction, aimed at
+                  companies instead of individuals. The pattern that holds back a
+                  person holds back an entire organisation: skilled people doing
+                  work that AI could now carry, while competitors who adopt it
+                  early quietly pull away.
                 </p>
                 <p>
-                  Northstack is how we bring that frontier inside established
-                  companies. We don&apos;t claim to know your industry better
-                  than you — <strong>you&apos;re the expert</strong>. We bring
-                  the AI-native tooling, the building experience, and the
-                  teaching instinct to make your team dramatically faster at what
-                  they already do best.
+                  So we bring that frontier inside established companies. We
+                  don&apos;t claim to know your industry better than you —{" "}
+                  <strong>you&apos;re the expert</strong>. We bring the AI-native
+                  tooling, the building experience, and the teaching instinct to
+                  make your team dramatically faster at what they already do best
+                  — so the work, and the people doing it, are on the right side of
+                  this shift.
                 </p>
 
                 <h3>What we believe</h3>
@@ -158,6 +185,30 @@ export default function About() {
                   yours. Our job is to make it compound.
                 </p>
 
+                <h3>Where the name came from</h3>
+                <p>
+                  <strong>Northstack</strong> is two ideas in one word. The{" "}
+                  <strong>north</strong> is the north star — a fixed point you
+                  steer by, the direction that&apos;s always up. The{" "}
+                  <strong>stack</strong> is the tech stack: the tools, systems
+                  and layers of capability you build to get there.
+                </p>
+                <p>
+                  And a stack is never finished. The whole point is to keep
+                  improving it — swapping in better tools, raising the ceiling,
+                  and moving with where the industry is going rather than where
+                  it was. <strong>Especially with AI</strong>, where the frontier
+                  shifts every few weeks: the teams that keep their stack current
+                  pull away, and the ones that freeze it fall behind. So we treat
+                  &ldquo;done&rdquo; as a moving target — always climbing, always
+                  improving, always stacking the next layer on top.
+                </p>
+                <p className="pull">
+                  &ldquo;The only direction worth building in is up. Northstack
+                  is the climb — and a tech stack that keeps improving with the
+                  industry, especially AI.&rdquo;
+                </p>
+
                 <div className="hero-actions" style={{ marginTop: 28 }}>
                   <a className="btn btn-primary" href="/#contact">
                     Let&apos;s chat
@@ -178,13 +229,21 @@ export default function About() {
               <span className="eyebrow">The track record</span>
               <h2>
                 Proof, not promises — from{" "}
-                <span className="grad-text">Sigmaschool</span>.
+                <a
+                  className="grad-text"
+                  href="https://sigmaschool.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Sigmaschool
+                </a>
+                .
               </h2>
               <p>
                 The same people building Northstack already ran one of Southeast
-                Asia&apos;s leading coding bootcamps. Here&apos;s what that looks
-                like in outcomes — careers changed, partners hiring, and the
-                press paying attention.
+                Asia&apos;s leading AI-native software development programmes.
+                Here&apos;s what that looks like in outcomes — careers changed,
+                partners hiring, and the press paying attention.
               </p>
             </div>
 

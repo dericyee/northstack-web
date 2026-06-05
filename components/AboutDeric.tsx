@@ -1,4 +1,5 @@
 import Star from "./Star";
+import { TikTokIcon, YouTubeIcon, InstagramIcon } from "./SocialIcons";
 
 function LinkIcon() {
   return (
@@ -22,9 +23,11 @@ export default function AboutDeric() {
           <span className="eyebrow">About the founder</span>
           <h2>Deric Yee.</h2>
           <p>
-            Northstack is founded by Deric Yee — self-taught builder and the
-            founder of Sigmaschool. He&apos;s spent years shipping products and
-            teaching thousands of people to build with code and AI.
+            Northstack is founded by Deric Yee — a self-taught builder who has
+            spent years shipping products and helping thousands of people build
+            with code and AI. His work keeps circling one question: as AI rewrites
+            how work gets done, what does it mean for our careers, our money, and
+            our future?
           </p>
         </div>
 
@@ -46,37 +49,72 @@ export default function AboutDeric() {
                 <LinkIcon /> sigmaschool.co
               </a>
             </div>
+            <div className="nx-founder-socials">
+              <a
+                href="https://www.tiktok.com/@dericjyyee"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Deric Yee on TikTok"
+              >
+                <TikTokIcon />
+              </a>
+              <a
+                href="https://www.youtube.com/@dericyjy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Deric Yee on YouTube"
+              >
+                <YouTubeIcon />
+              </a>
+              <a
+                href="https://www.instagram.com/dericjyyee/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Deric Yee on Instagram"
+              >
+                <InstagramIcon />
+              </a>
+            </div>
           </aside>
 
           <div className="nx-founder-prose">
             <p>
-              Deric started Sigmaschool out of a frustration, not a business
-              plan. He kept watching smart, hungry people try to break into tech
-              and hit the same wall — courses that dumped videos with no
-              guidance, taught skills but not outcomes, and left people able to
-              learn but unable to get hired.
+              Deric&apos;s real obsession isn&apos;t education — it&apos;s the
+              future of work. He believes the biggest shift of our lifetime is
+              already underway: AI is quietly redrawing which skills pay, which
+              jobs last, and how ordinary people build wealth. The people who
+              understand that early will compound; the people who wait will spend
+              the next decade catching up.
             </p>
             <p>
-              So he built the place he wished existed: somewhere you could learn
-              tech, get mentored, use AI properly, ship real projects, and land a
-              real job — all on one path. What started as a side project became{" "}
-              <strong>Sigmaschool</strong>, one of Southeast Asia&apos;s leading
-              coding bootcamps, with hundreds of graduates now building in
-              production.
+              <strong>Sigmaschool</strong> was his first bet on that thesis — a
+              school and a set of programmes built to take complete beginners and
+              turn them into people who can actually build with code and AI. Not
+              for the credential, but because being AI-native is fast becoming the
+              difference between a career that grows and one that gets automated
+              around.
             </p>
             <blockquote className="nx-founder-quote">
               <Star size={16} />
               <span>
-                &ldquo;Learning alone is hard. Learning with guidance, community,
-                and real-world context isn&apos;t. That&apos;s the entire
-                bet.&rdquo;
+                &ldquo;AI is going to reshape our careers, our money, and our
+                future. I&apos;d rather help people get ahead of it than watch it
+                happen to them. That&apos;s the bet.&rdquo;
               </span>
             </blockquote>
             <p>
-              Northstack is how he brings that frontier inside established
-              companies — pairing your domain expertise with AI-native tooling,
-              so the knowledge you&apos;ve spent years building compounds instead
-              of stalling.
+              <strong>Northstack is the next bet.</strong> Same conviction, aimed
+              at companies instead of individuals — bringing AI-native tooling
+              inside established teams so the expertise they&apos;ve spent years
+              building compounds with AI instead of being left behind by it.
+            </p>
+            <p>
+              The name says the rest: <strong>north</strong> is the north star —
+              the direction that&apos;s always up — and <strong>stack</strong> is
+              the tech stack you build to get there. A stack is never finished;
+              you keep improving it, moving with where the industry is going,{" "}
+              <strong>especially AI</strong>, where the frontier shifts every few
+              weeks. Always climbing, always improving.
             </p>
             <div className="hero-actions" style={{ marginTop: 26 }}>
               <a className="btn btn-primary" href="/about">

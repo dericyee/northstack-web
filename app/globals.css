@@ -101,6 +101,14 @@ p {
   color: transparent;
   animation: gradShift 8s ease infinite;
 }
+a.grad-text {
+  text-decoration: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: border-color 0.2s var(--ease);
+}
+a.grad-text:hover {
+  border-bottom-color: var(--accent);
+}
 @keyframes gradShift {
   0%,
   100% {
@@ -354,6 +362,212 @@ p {
   color: var(--muted);
   display: block;
   margin-top: 4px;
+}
+
+/* ---------- Hero two-column layout + illustration ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 52px;
+  align-items: center;
+}
+.hero-grid .hero h1,
+.hero-copy h1 {
+  max-width: 18ch;
+}
+.hero-copy .hero-lede {
+  max-width: 52ch;
+}
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .hero-visual {
+    order: -1;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+.hero-visual {
+  position: relative;
+  /* Pure-CSS entrance — never depends on JS, so it can't stay hidden. */
+  animation: hvIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes hvIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual {
+    animation: none;
+  }
+}
+.hero-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.hero-visual .hv-float {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.hv-float-a {
+  animation: hvFloat 6s ease-in-out infinite;
+}
+.hv-float-b {
+  animation: hvFloat 7s ease-in-out infinite 0.6s;
+}
+@keyframes hvFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+/* rising line draws itself in on load */
+.hv-draw {
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  animation: hvDraw 2s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes hvDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* pulsing ring on the latest data point */
+.hero-visual .hv-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hvPing 2.6s ease-out infinite;
+}
+@keyframes hvPing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  70%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+/* live status dot */
+.hv-blink {
+  animation: hvBlink 1.8s ease-in-out infinite;
+}
+@keyframes hvBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+/* ambient glow breathing */
+.hero-visual .hv-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hvBreathe 9s ease-in-out infinite;
+}
+.hv-breathe-b {
+  animation-duration: 11s;
+  animation-delay: 1.5s;
+}
+@keyframes hvBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+/* automation progress bar fill */
+.hv-progress {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: hvProgress 4s ease-in-out infinite;
+}
+@keyframes hvProgress {
+  0% {
+    transform: scaleX(0.08);
+  }
+  60% {
+    transform: scaleX(0.78);
+  }
+  100% {
+    transform: scaleX(0.96);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hv-float-a,
+  .hv-float-b,
+  .hv-ping,
+  .hv-blink,
+  .hv-breathe,
+  .hv-progress {
+    animation: none;
+  }
+  .hv-draw {
+    stroke-dashoffset: 0;
+  }
+  .hv-progress {
+    transform: scaleX(0.96);
+  }
+}
+
+/* ---------- Industries from the essay ---------- */
+.nx-industries {
+  margin-top: 56px;
+  text-align: center;
+}
+.nx-industries-lede {
+  margin: 10px auto 0;
+  max-width: 60ch;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.nx-industry-tags {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.nx-industry-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+.nx-industry-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* ---------- Section scaffolding ---------- */
@@ -910,6 +1124,17 @@ html:not(.js-ready) .bar > i {
   font-weight: 600;
   color: var(--ink-soft);
   margin-bottom: 7px;
+}
+.field-optional {
+  font-weight: 500;
+  color: var(--muted);
+}
+.field-msg {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #d6453d;
 }
 .field input,
 .field select,
@@ -1962,6 +2187,31 @@ html:not(.js-ready) .nx-bar-fill {
 }
 .nx-founder-links a:hover {
   color: var(--accent);
+}
+.nx-founder-socials {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+}
+.nx-founder-socials a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink-soft);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+    background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.nx-founder-socials a:hover {
+  color: #fff;
+  background: var(--grad);
+  border-color: transparent;
+  transform: translateY(-2px);
 }
 .nx-founder-prose p {
   font-size: 17px;

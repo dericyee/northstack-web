@@ -10,6 +10,162 @@ import { team } from "@/components/socialProofData";
 
 const SEQUOIA_URL = "https://www.sequoiacap.com/article/services-the-new-software/";
 
+/**
+ * Industries the Sequoia "Services: The New Software" essay points to as the
+ * largest services markets AI is set to reshape — the same verticals we focus on.
+ */
+const ARTICLE_INDUSTRIES = [
+  "Legal",
+  "Accounting & tax",
+  "Healthcare",
+  "Customer support",
+  "Recruiting & HR",
+  "IT services",
+  "Consulting",
+  "Financial services",
+  "Sales & marketing",
+  "Insurance",
+];
+
+/**
+ * Self-contained hero illustration — an AI-native operations cockpit, built as
+ * inline SVG so it stays crisp at any size with no external asset. Pure brand
+ * styling, with subtle motion that respects prefers-reduced-motion.
+ */
+function HeroVisual() {
+  return (
+    <div className="hero-visual" aria-hidden="true">
+      <svg
+        viewBox="0 0 540 480"
+        fill="none"
+        role="img"
+        aria-label="An AI-native operations dashboard"
+        fontFamily="inherit"
+      >
+        <defs>
+          <linearGradient id="hvg" x1="0" y1="0" x2="540" y2="480">
+            <stop stopColor="#3d63f5" />
+            <stop offset="1" stopColor="#5b82ff" />
+          </linearGradient>
+          <linearGradient id="hvg2" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#5b82ff" />
+            <stop offset="1" stopColor="#3d63f5" />
+          </linearGradient>
+          <linearGradient id="hva" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#3d63f5" stopOpacity="0.26" />
+            <stop offset="1" stopColor="#3d63f5" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="hvshine" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#ffffff" stopOpacity="0.22" />
+            <stop offset="0.5" stopColor="#ffffff" stopOpacity="0" />
+          </linearGradient>
+          <radialGradient id="hvspot" cx="0.5" cy="0.5" r="0.5">
+            <stop stopColor="#ffffff" stopOpacity="0.5" />
+            <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
+          </radialGradient>
+          <filter id="hvs" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="22" stdDeviation="30" floodColor="#16235e" floodOpacity="0.20" />
+          </filter>
+          <filter id="hvs2" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="12" stdDeviation="18" floodColor="#16235e" floodOpacity="0.20" />
+          </filter>
+          <pattern id="hvdots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" opacity="0.16" />
+          </pattern>
+          <clipPath id="hvcard">
+            <rect x="82" y="104" width="392" height="300" rx="24" />
+          </clipPath>
+        </defs>
+
+        {/* bold gradient backdrop panel */}
+        <rect x="22" y="46" width="496" height="392" rx="34" fill="url(#hvg)" />
+        <circle cx="430" cy="120" r="150" fill="url(#hvspot)" className="hv-breathe" />
+        <rect x="22" y="46" width="496" height="392" rx="34" fill="url(#hvdots)" />
+        <rect x="22" y="46" width="496" height="392" rx="34" fill="url(#hvshine)" />
+
+        {/* main dashboard card */}
+        <g filter="url(#hvs)">
+          <g clipPath="url(#hvcard)">
+            <rect x="82" y="104" width="392" height="300" fill="#ffffff" />
+
+            {/* header */}
+            <circle cx="108" cy="134" r="13" fill="url(#hvg)" />
+            <path d="M103 134l3.5 3.5 6-6.5" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            <text x="130" y="131" fontSize="13" fontWeight="700" fill="#0b1020">Northstack · Ops</text>
+            <text x="130" y="146" fontSize="10.5" fontWeight="500" fill="#8a8f98">AI-native workflow</text>
+            <rect x="386" y="122" width="68" height="24" rx="12" fill="#e8f7ef" />
+            <circle cx="400" cy="134" r="3.5" fill="#1fb877" className="hv-blink" />
+            <text x="410" y="138" fontSize="10.5" fontWeight="700" fill="#149a63">Live</text>
+            <line x1="82" y1="162" x2="474" y2="162" stroke="#eef0f4" strokeWidth="1" />
+
+            {/* chart */}
+            <line x1="108" y1="208" x2="448" y2="208" stroke="#f1f2f6" strokeWidth="1" />
+            <line x1="108" y1="252" x2="448" y2="252" stroke="#f1f2f6" strokeWidth="1" />
+            <line x1="108" y1="296" x2="448" y2="296" stroke="#f1f2f6" strokeWidth="1" />
+            <path
+              d="M108 296 C156 288 188 250 236 240 C290 228 330 196 392 176 C420 167 436 158 448 150 L448 312 L108 312 Z"
+              fill="url(#hva)"
+            />
+            <path
+              className="hv-draw"
+              d="M108 296 C156 288 188 250 236 240 C290 228 330 196 392 176 C420 167 436 158 448 150"
+              stroke="url(#hvg)"
+              strokeWidth="3.2"
+              strokeLinecap="round"
+            />
+            <circle cx="236" cy="240" r="4.5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
+            <g className="hv-ping">
+              <circle cx="448" cy="150" r="11" fill="#3d63f5" opacity="0.18" />
+            </g>
+            <circle cx="448" cy="150" r="5" fill="#fff" stroke="url(#hvg)" strokeWidth="3" />
+
+            {/* KPI tiles */}
+            <rect x="108" y="330" width="160" height="58" rx="14" fill="#f6f7fb" />
+            <text x="124" y="360" fontSize="24" fontWeight="800" fill="url(#hvg)">1,240</text>
+            <text x="124" y="377" fontSize="10.5" fontWeight="600" fill="#8a8f98">hours saved / mo</text>
+            <rect x="288" y="330" width="160" height="58" rx="14" fill="#f6f7fb" />
+            <text x="304" y="360" fontSize="24" fontWeight="800" fill="url(#hvg2)">82%</text>
+            <text x="304" y="377" fontSize="10.5" fontWeight="600" fill="#8a8f98">gross margin</text>
+          </g>
+        </g>
+
+        {/* floating: AI agent pill */}
+        <g className="hv-float hv-float-a" filter="url(#hvs2)">
+          <rect x="350" y="64" width="158" height="50" rx="25" fill="#ffffff" />
+          <circle cx="375" cy="89" r="13" fill="url(#hvg)" />
+          <path
+            d="M375 82l1.7 4 4 1.7-4 1.7-1.7 4-1.7-4-4-1.7 4-1.7z"
+            fill="#fff"
+          />
+          <text x="396" y="86" fontSize="12.5" fontWeight="700" fill="#0b1020">AI agent</text>
+          <text x="396" y="101" fontSize="10" fontWeight="500" fill="#8a8f98">running 4 tasks</text>
+        </g>
+
+        {/* floating: automation card */}
+        <g className="hv-float hv-float-b" filter="url(#hvs2)">
+          <rect x="30" y="250" width="168" height="74" rx="18" fill="#ffffff" />
+          <circle cx="56" cy="276" r="13" fill="#ecf1ff" />
+          <path d="M56 270v6l4 3" stroke="url(#hvg)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="78" y="273" fontSize="11.5" fontWeight="700" fill="#0b1020">Automation</text>
+          <text x="78" y="287" fontSize="9.5" fontWeight="500" fill="#8a8f98">intake → draft → send</text>
+          <rect x="46" y="300" width="138" height="7" rx="3.5" fill="#eef1f6" />
+          <rect x="46" y="300" width="138" height="7" rx="3.5" fill="url(#hvg)" className="hv-progress" />
+        </g>
+
+        {/* floating: output stat */}
+        <g className="hv-float hv-float-a" filter="url(#hvs2)">
+          <rect x="360" y="356" width="150" height="78" rx="18" fill="#ffffff" />
+          <circle cx="388" cy="384" r="15" fill="#e8f7ef" />
+          <path d="M388 391v-13M383 384l5-6 5 6" stroke="#1fb877" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="414" y="383" fontSize="20" fontWeight="800" fill="#0b1020">+312%</text>
+          <text x="414" y="399" fontSize="10" fontWeight="600" fill="#8a8f98">output per head</text>
+          <text x="378" y="424" fontSize="9.5" fontWeight="500" fill="#8a8f98">vs. pre-AI baseline</text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 function Check() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -73,27 +229,32 @@ export default function Home() {
           <span className="blob blob-a" aria-hidden="true" />
           <span className="blob blob-b" aria-hidden="true" />
           <div className="container">
-            <div className="reveal">
-              <span className="eyebrow">AI-native transformation studio</span>
-            </div>
-            <h1 className="reveal" style={{ marginTop: 22 }}>
-              Become <span className="grad-text">AI-native</span> before your
-              competitors do.
-            </h1>
-            <p className="hero-lede reveal">
-              We&apos;ve built software for years and kept seeing the same thing:
-              brilliant teams losing hours to work that AI can now do. You know
-              your field better than anyone. We bring the AI-native tools to make
-              your people dramatically faster at it.
-            </p>
-            <div className="hero-actions reveal">
-              <a className="btn btn-primary" href="#contact">
-                Let&apos;s chat
-                <span className="btn-arrow">→</span>
-              </a>
-              <a className="btn btn-ghost" href="#why">
-                Why this, why now
-              </a>
+            <div className="hero-grid">
+              <div className="hero-copy">
+                <div className="reveal">
+                  <span className="eyebrow">AI-native transformation studio</span>
+                </div>
+                <h1 className="reveal" style={{ marginTop: 22 }}>
+                  Become <span className="grad-text">AI-native</span> before your
+                  competitors do.
+                </h1>
+                <p className="hero-lede reveal">
+                  We&apos;ve built software for years and kept seeing the same
+                  thing: brilliant teams losing hours to work that AI can now do.
+                  You know your field better than anyone. We bring the AI-native
+                  tools to make your people dramatically faster at it.
+                </p>
+                <div className="hero-actions reveal">
+                  <a className="btn btn-primary" href="#contact">
+                    Let&apos;s chat
+                    <span className="btn-arrow">→</span>
+                  </a>
+                  <a className="btn btn-ghost" href="#why">
+                    Why this, why now
+                  </a>
+                </div>
+              </div>
+              <HeroVisual />
             </div>
             <div className="hero-meta reveal">
               <div className="stat">
@@ -259,6 +420,22 @@ export default function Home() {
               <p className="article-note">
                 Excerpt shown for context. Full article © Sequoia Capital.
               </p>
+            </div>
+
+            {/* Industries the essay points to */}
+            <div className="nx-industries reveal">
+              <span className="eyebrow">Where the shift lands first</span>
+              <p className="nx-industries-lede">
+                The essay points to the biggest services markets AI is already
+                reshaping — the same industries where we see the most to gain:
+              </p>
+              <div className="nx-industry-tags">
+                {ARTICLE_INDUSTRIES.map((industry) => (
+                  <span className="nx-industry-tag" key={industry}>
+                    {industry}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
