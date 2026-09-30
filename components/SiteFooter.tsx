@@ -24,12 +24,14 @@ export default function SiteFooter() {
             <a href="/about">About</a>
             <a href="/#contact">Contact</a>
             <a href="mailto:deric.yee@gmail.com">deric.yee@gmail.com</a>
-            <a href="tel:+601161109801">+60 11-6110 9801</a>
           </div>
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} Northstack. All rights reserved.
+            © {new Date().getFullYear()} Northstack, a brand of Jobier Pte Ltd
+            (UEN 202306189M). All rights reserved.
+            <br />
+            60 Paya Lebar Road, #06-28 Paya Lebar Square, Singapore 409051
           </span>
           <span>
             Premise:{" "}
